@@ -30,59 +30,10 @@ public class CompanyController {
 	@Autowired	
 	private CompanyService companyService;
 	@Autowired
-	private QuestionService questionService;
-	@Autowired
 	private ApplyService applyService;
 	@Autowired
 	private RecruitService recruitService;
 	
-	//기업용 질문 상세보기
-		@GetMapping("/getQuestionOneByCompany")
-		public String getQuestionOneByCompany(Model model, HttpSession session, Question question, Answer answer,
-				@RequestParam(value="currentPage", defaultValue="1") int currentPage) {
-	System.out.println(question.getQuestionNo() + "<-- questionNo");
-			
-			String memberName = "";
-			
-			if(session.getAttribute("loginCompany")!=null) {
-				memberName=((LoginCompany)session.getAttribute("loginCompany")).getCompanyKorName();
-			}
-			
-			String getIp = IPUtil.getIPAddress();
-			
-			System.out.println(memberName + " <--- CompanyController memberName");
-			LoginCompany loginCompany=(LoginCompany)session.getAttribute("loginCompany");
-			question.setMemberName(loginCompany.getCompanyKorName());
-						
-			Map<String, Object> map = questionService.getQuestionOne(question);
-			
-			// 질문
-			model.addAttribute("ip", getIp);
-			model.addAttribute("memberName", memberName);
-			model.addAttribute("question", map.get("questionOne"));
-			model.addAttribute("viewsCount", map.get("viewsCount"));
-			return "company/getQuestionOneByCompany";
-		}
-	//기업용 질문 리스트 출력
-		@GetMapping("/getQuestionListByCompany")
-		public String getQuestionListByCompany(Model model, HttpSession session,
-			@RequestParam(value="currentPage", defaultValue="1") int currentPage,
-			@RequestParam(value="searchWord", defaultValue="") String searchWord) {
-			
-			
-			
-			if(session.getAttribute("loginCompany") != null) {
-				 ((LoginCompany)session.getAttribute("loginCompany")).getCompanyKorName();
-			}
-			
-			Map<String, Object> questionList = questionService.getQuestionList(currentPage, searchWord);
-			
-			model.addAttribute("questionList", questionList.get("questionList"));
-			model.addAttribute("lastPage", questionList.get("lastPage"));
-			model.addAttribute("currentPage", currentPage);
-			return "company/getQuestionListByCompany";
-		}
-		
 	//기업 목록
 	@GetMapping("/getCompanyList")
 	public String getCompanyList(HttpSession session, Model model,
