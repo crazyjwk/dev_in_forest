@@ -327,7 +327,7 @@
 		
 		let companyEmail2 = $('#companyEmail2').val();
 		$.ajax({
-            url:'/devinforest/checkCompanyEmail'
+            url:'/checkCompanyEmail'
             ,type:'POST'
             ,data:{'companyEmail2':companyEmail2}
             ,success : function(data) {
@@ -368,7 +368,7 @@
 		
 		let companyKorName2 = $('#companyKorName2').val();
 		$.ajax({
-            url:'/devinforest/checkCompanyKorName'
+            url:'/checkCompanyKorName'
             ,type:'POST'
             ,data:{'companyKorName2':companyKorName2}
             ,success : function(data) {
@@ -407,7 +407,7 @@
 		}
 		let companyEngName2 = $('#companyEngName2').val();
 		$.ajax({
-            url:'/devinforest/checkCompanyEngName'
+            url:'/checkCompanyEngName'
             ,type:'POST'
             ,data:{'companyEngName2':companyEngName2}
             ,success : function(data) {

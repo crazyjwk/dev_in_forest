@@ -325,7 +325,7 @@
 		
 		let adminName2 = $('#inputEmail').val();
 		$.ajax({
-            url:'/devinforest/checkAdminName'
+            url:'/checkAdminName'
             ,type:'POST'
             ,data:{'adminName2':adminName2}
             ,success : function(data) {

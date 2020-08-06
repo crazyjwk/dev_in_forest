@@ -186,11 +186,11 @@ public class RecruitController {
 		String applyMsg=null;
 		int memberReputation = applyService.getMemberReputation(apply);
 		int recruitReputation = applyService.getRecruitReputation(apply);
-		System.out.println(memberReputation+"<----회원 명성도");
-		System.out.println(recruitReputation+"<----공고 명성도");
+		System.out.println(memberReputation+"<----회원 내공");
+		System.out.println(recruitReputation+"<----공고 내공");
 		if(memberReputation < recruitReputation) {
-			applyMsg="명성도가 부족합니다.";
-			System.out.println("명성도 부족");
+			applyMsg="내공가 부족합니다.";
+			System.out.println("내공 부족");
 		}else {
 			if(checkApplyNo==0) {
 				applyService.addApply(apply);

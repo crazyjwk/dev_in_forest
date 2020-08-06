@@ -250,7 +250,7 @@
 		
 		let memberEmail2 = $('#memberEmail2').val();
 		$.ajax({
-            url:'/devinforest/checkMemberEmail'
+            url:'/checkMemberEmail'
             ,type:'POST'
             ,data:{'memberEmail2':memberEmail2}
             ,success : function(data) {
@@ -291,7 +291,7 @@
 		
 		let memberName2 = $('#memberName2').val();
 		$.ajax({
-            url:'/devinforest/checkMemberName'
+            url:'/checkMemberName'
             ,type:'POST'
             ,data:{'memberName2':memberName2}
             ,success : function(data) {

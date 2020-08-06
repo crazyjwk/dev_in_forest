@@ -189,7 +189,7 @@ $('#emailCheckBtn').click(function(){
 	
 	let restorationTitle2 = $('#restorationTitle2').val();
 	$.ajax({
-        url:'/devinforest/checkRestoreEmail'
+        url:'/checkRestoreEmail'
         ,type:'POST'
         ,data:{'restorationTitle2':restorationTitle2}
         ,success : function(data) {
