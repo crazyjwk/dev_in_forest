@@ -1,6 +1,5 @@
 package com.devinforest.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.devinforest.IPUtil;
@@ -30,9 +28,10 @@ public class QuestionController {
    
 	@Autowired 
 	private QuestionService questionService;
+	
 	@Autowired
 	private HashtagService hashtagService;
-	
+
 	/* ---------- 질문 목록 ---------- */
 	@GetMapping("/getQuestionList")
 	public String getQuestionList(Model model, HttpSession session,
@@ -42,21 +41,36 @@ public class QuestionController {
 		String memberName = "Guest";
 		String accountKind = "G";
 		String companyEmail = "";
+//		
+//		if(getSession.getLoginSession(session, "loginMember")) {
+//			memberName = ((LoginMember)session.getAttribute("loginMember")).getMemberName();
+//			accountKind = ((LoginMember)session.getAttribute("loginMember")).getAccountKind();
+//			System.out.println(memberName + " : " + accountKind + " <---- member Session");
+//		} else if(getSession.getLoginSession(session, "loginAdmin")) {
+//			memberName = ((LoginAdmin)session.getAttribute("loginAdmin")).getAdminName();
+//			accountKind = ((LoginAdmin)session.getAttribute("loginAdmin")).getAccountKind();
+//			System.out.println(memberName + " : " + accountKind+ " <---- admin Session");
+//		} else if(getSession.getLoginSession(session, "loginCompany")) {
+//			memberName = ((LoginCompany)session.getAttribute("loginCompany")).getCompanyKorName();
+//			accountKind = "C";
+//			companyEmail = ((LoginCompany)session.getAttribute("loginCompany")).getCompanyEmail();
+//			System.out.println(memberName + " : " + accountKind + " : " + companyEmail +" <---- company Session");
+//		}
 		
-		if(session.getAttribute("loginMember") != null) {
-			memberName = ((LoginMember)session.getAttribute("loginMember")).getMemberName();
-			accountKind = ((LoginMember)session.getAttribute("loginMember")).getAccountKind();
-			System.out.println(memberName + " : " + accountKind + " <---- member Session");
-		} else if(session.getAttribute("loginAdmin") != null) {
-			memberName = ((LoginAdmin)session.getAttribute("loginAdmin")).getAdminName();
-			accountKind = ((LoginAdmin)session.getAttribute("loginAdmin")).getAccountKind();
-			System.out.println(memberName + " : " + accountKind+ " <---- admin Session");
-		} else if(session.getAttribute("loginCompany") != null) {
-			memberName = ((LoginCompany)session.getAttribute("loginCompany")).getCompanyKorName();
-			accountKind = "C";
-			companyEmail = ((LoginCompany)session.getAttribute("loginCompany")).getCompanyEmail();
-			System.out.println(memberName + " : " + accountKind + " : " + companyEmail +" <---- company Session");
-		}
+//		if(session.getAttribute("loginMember") != null) {
+//			memberName = ((LoginMember)session.getAttribute("loginMember")).getMemberName();
+//			accountKind = ((LoginMember)session.getAttribute("loginMember")).getAccountKind();
+//			System.out.println(memberName + " : " + accountKind + " <---- member Session");
+//		} else if(session.getAttribute("loginAdmin") != null) {
+//			memberName = ((LoginAdmin)session.getAttribute("loginAdmin")).getAdminName();
+//			accountKind = ((LoginAdmin)session.getAttribute("loginAdmin")).getAccountKind();
+//			System.out.println(memberName + " : " + accountKind+ " <---- admin Session");
+//		} else if(session.getAttribute("loginCompany") != null) {
+//			memberName = ((LoginCompany)session.getAttribute("loginCompany")).getCompanyKorName();
+//			accountKind = "C";
+//			companyEmail = ((LoginCompany)session.getAttribute("loginCompany")).getCompanyEmail();
+//			System.out.println(memberName + " : " + accountKind + " : " + companyEmail +" <---- company Session");
+//		}
 		
 		Map<String, Object> questionList = questionService.getQuestionList(currentPage, searchWord);
 		List<QuestionHashtag> questionHashtagList = questionService.getQuestionHashtagList();

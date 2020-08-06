@@ -1,11 +1,18 @@
 package com.devinforest.vo;
 
+import javax.servlet.http.HttpSession;
+
 public class LoginMember {
 	private String memberEmail;
 	private String memberName;
 	private String memberPassword;
 	private String accountKind;
 	private int memberReputation;
+	
+	public boolean getLoginSession(HttpSession session) {
+		return session.getAttribute("loginMember") != null;
+	}
+	
 	public String getMemberEmail() {
 		return memberEmail;
 	}

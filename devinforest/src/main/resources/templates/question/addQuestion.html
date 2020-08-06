@@ -206,7 +206,7 @@
 					} else {
 						console.log("전송직전");
 						$.ajax({
-							url: '/addQuestion',
+							url: '/devinforest/addQuestion',
 							type: 'POST',
 							data: {'memberName' : memberName, 'questionTitle' : questionTitle, 'questionContent' : questionContent, 'questionReputation' : memberReputation, 'questionIp' : questionIp,
 									'selectHashtag1' : selectHashtag1 ,'selectHashtag2' : selectHashtag2, 'selectHashtag3' : selectHashtag3, 'selectHashtag4' : selectHashtag4, 'selectHashtag5' : selectHashtag5},

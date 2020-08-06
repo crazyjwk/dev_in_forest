@@ -261,7 +261,7 @@
 		} else {
 			console.log('확인');
 			$.ajax({
-				url:'/getRemoveCheck'
+				url:'/devinforest/getRemoveCheck'
 				,type : 'post'
 				,data : {
 					'reportQuestionNo':reportQuestionNo,
@@ -298,7 +298,7 @@
 				}
 			});
 			$.ajax({
-				url: '/blackMemberCheck'
+				url: '/devinforest/blackMemberCheck'
 				,type:'post'
 				,data:{'reportMemberName':reportMemberName}
 				,success:function(data){
@@ -316,7 +316,7 @@
 							} else {
 								console.log('확인');
 								$.ajax({
-									url : '/modifyReportState'
+									url : '/devinforest/modifyReportState'
 									,type : 'post'
 									,data : {'reportNo':reportNo}
 									,success:function(){
@@ -339,7 +339,7 @@
 	function openWindowPop(name){
 		let reportNo = $('#reportNo').val()
 		console.log(reportNo);
-		let url = '/blackPopup?reportNo='+reportNo;
+		let url = '/devinforest/blackPopup?reportNo='+reportNo;
 	    let options = 'top=100, left=700, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no';
 	    window.open(url, name, options);
 	}
