@@ -85,6 +85,7 @@
 				  initialValue: questionContent,
 				  plugins: [codeSyntaxHighlight]
 			});
+			
 		
 			// 질문 총 투표 수 가져오기
 			$.ajax({
@@ -386,7 +387,7 @@
 	 														'<td><button class="btn" type="button" id="answerDownBtn' + item.answerNo +'"><i id="fa-chevron-down'+ item.answerNo +'" class="fas fa-chevron-down" style="font-size:24px"></i></button></td>' +
 	 													'</tr>' +
 	 												'</table>' +
-	 												'<div style="font-size: 18px;">' + item.answerContent +'</div>' +
+	 												'<div id="viewer' + item.answerNo + '" style="font-size: 18px;"></div>' +
 	 											'</div>');
 						$('#answerList').append('<div style="text-align: right;">by ' + item.memberName  + '(' + item.answerIp.substring(0, 7) + ')</div>');
 						$('#answerList').append('<div><button type="button" class="btn btn-outline-danger btn-sm" id="answerSelectBtn'+ item.answerNo +'">신고</button></div><br>');
@@ -398,6 +399,13 @@
 						$('#answerList').append('</div>');
 						$('#answerList').append('<br><div id="answerComment'+item.answerNo +'"><a id="writeAnswerCommentBtn' + item.answerNo + '" href="#">댓글 작성</a></div>');					
 						$('#answerList').append('<hr>');
+						
+						const viewer = new Viewer({
+							  el: document.querySelector('#viewer' + item.answerNo),
+							  height: 'auto',
+							  initialValue: item.answerContent,
+							  plugins: [codeSyntaxHighlight]
+						});
 					});
 					
 					$.each(data['answerList'], function(index, item){
@@ -699,21 +707,7 @@
 							success : function(data) {
 								console.log(data['answerList']);
 								console.log(data['lastPage']);
-								/* 비동기 테스트 전
-									$.each(data['answerList'], function(index, item){
-										$('#answerList').empty();
-										$('#addedAnswerList').append('<div>'+ item.answerContent + '</div>');
-										$('#addedAnswerList').append('<div>'+ item.memberName + '</div>');
-										$('#addedAnswerList').append('<div id="answerCommentList'+ item.answerNo +'">');
-										$('#addedAnswerList').append('<div id="answerCommentShowMore' + item.answerNo + '"></div>');
-										$('#addedAnswerList').append('</div>');
-										$('#addedAnswerList').append('<div id="answerCommentAllList' + item.answerNo + '">');
-										$('#addedAnswerList').append('<div id="answerCommentShowMore' + item.answerNo + '"></div>');
-										$('#addedAnswerList').append('</div>');
-										$('#addedAnswerList').append('<div id="answerComment'+item.answerNo +'"><a th:if="${memberName} != "Guest"" class="btn btn-outline-success btn-sm" id="writeAnswerCommentBtn' + item.answerNo + '" href="#">댓글 작성</a></div>');					
-										$('#addedAnswerList').append('<hr>');
-									});	
-								*/
+				
 								location.reload();
 							}
 						});
@@ -731,6 +725,7 @@
 	<!-- Editor's Plugin -->
 	<script
 		src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
+	
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
@@ -1012,18 +1007,23 @@
 							id="writeQuestionCommentBtn" href="#">댓글 작성</a>
 					</div>
 					<br>
+					<!-- 답변 투표수 -->
 					<h2 id="answerTotalCount"></h2>
 					<hr>
 					<!-- 답변 리스트 -->
 					<div id="answerList"></div>
 					<div id="addedAnswerList"></div>
 
-					<!-- 답변 작성 -->
-					<div th:if="${accountKind} == 'M'">
+					<!-- 답변 작성 -->	
+					<div th:if="${accountKind} == 'M' and ${question.memberName} != ${memberName}">
+						<div id="editor"></div>
 						<textarea rows="5" cols="100" class="form-control"
 							id="addAnswerContent" placeholder="Enter your answer"></textarea>
 						<br>
 						<button class="btn btn-outline-success" id="addAnswerBtn">답변작성</button>
+					</div>
+					<div th:if="${question.memberName} == ${memberName}">
+						질문자는 답변을 작성할 수 없습니다.
 					</div>
 					<div th:if="${accountKind} == 'G'">
 						답변을 작성하려면 <a th:href="@{/memberLogin}" th:text="로그인"></a>을 하세요.
@@ -1041,6 +1041,7 @@
 				</div>
 				<!-- /.container-fluid -->
 			</div>
+			<br>
 			<!-- End of Main Content -->
 
 			<!-- 하단 저작권 -->
@@ -1096,11 +1097,11 @@
 	<script th:src="@{/js/sb-admin-2.min.js}"></script>
 </body>
 <script>
-		$('#reportBtn').click(function(){
-			$('#reportForm').submit();
-			function openWindowPop(name) {
-				
-			}			
-		});
-	</script>
+	$('#reportBtn').click(function(){
+		$('#reportForm').submit();
+		function openWindowPop(name) {
+			
+		}			
+	});
+</script>
 </html>
