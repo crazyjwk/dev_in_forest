@@ -162,12 +162,6 @@
 
 			<!-- 마지막 구분 줄 -->
 			<hr class="sidebar-divider d-none d-md-block">
-
-			<!-- < 버튼 -->
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
-			</div>
-
 		</ul>
 		<!-- 사이드바 끝 -->
 
@@ -279,18 +273,17 @@
 										</tr>
 									</thead>
 									<tbody>
-									<tr th:each="suggest :${suggestList}">
+										<tr th:each="suggest :${suggestList}">
 											<td th:text="${suggest.recruitNo}"></td>
 											<td th:text="${suggest.memberName}"></td>
-											<td
-												th:text="${suggest.suggestContent}"></td>
+											<td th:text="${suggest.suggestContent}"></td>
 											<td th:text="${suggest.lastUpdate}"></td>
 											<td>
 												<div th:if="${suggest.suggestType}=='Y'">수락</div>
 												<div th:if="${suggest.suggestType}=='N'">거부</div>
 											</td>
 										</tr>
-										
+
 									</tbody>
 								</table>
 							</div>

@@ -98,8 +98,9 @@
 							th:href="@{/getMemberInfo(memberEmail=${session.loginMember.memberEmail})}">회원정보</a>
 						<a class="collapse-item" th:href="@{/getMemberList}">회원리스트</a> <a
 							class="collapse-item" th:href="@{/getRecruitList}">채용 리스트</a> <a
-							class="collapse-item" th:href="@{/getMemberInfo(memberEmail=${session.loginMember.memberEmail})}">면접제의 리스트</a> <a
-							class="collapse-item" href="#">문의&신고</a>
+							class="collapse-item"
+							th:href="@{/getMemberInfo(memberEmail=${session.loginMember.memberEmail})}">면접제의
+							리스트</a> <a class="collapse-item" href="#">문의&신고</a>
 					</div>
 				</div></li>
 
@@ -111,7 +112,7 @@
 			<div class="sidebar-heading">해시태그</div>
 
 			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="#"> <i
+			<li class="nav-item"><a class="nav-link" href="/getHashtagList"> <i
 					class="fas fa-fw fa-folder"></i> <span>해시태그</span>
 			</a></li>
 
@@ -131,8 +132,9 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Q&A</h6>
-						<a class="collapse-item" th:href="@{/getQuestionList}">질문리스트</a>
-						<a class="collapse-item" th:href="@{/addQuestion(memberName=${session.loginMember.memberName})}">질문하기</a>  
+						<a class="collapse-item" th:href="@{/getQuestionList}">질문리스트</a> <a
+							class="collapse-item"
+							th:href="@{/addQuestion(memberName=${session.loginMember.memberName})}">질문하기</a>
 					</div>
 				</div></li>
 			<!-- 구분 줄 -->
@@ -152,20 +154,16 @@
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">기업</h6>
 						<a class="collapse-item" th:href="@{/getCompanyList}">기업정보리스트</a>
-						<a class="collapse-item" th:href="@{/getMemberInfo(memberEmail=${session.loginMember.memberEmail})}">기업의 면접제의 리스트 </a> <a
-							class="collapse-item" th:href="@{/getRecruitList}">기업의 채용리스트</a>
+						<a class="collapse-item"
+							th:href="@{/getMemberInfo(memberEmail=${session.loginMember.memberEmail})}">기업의
+							면접제의 리스트 </a> <a class="collapse-item" th:href="@{/getRecruitList}">기업의
+							채용리스트</a>
 					</div>
 				</div></li>
 			<!-- 기업 끝 -->
 
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
-
-			<!-- Sidebar Toggler (Sidebar) -->
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
-			</div>
-
 		</ul>
 		<!-- 사이드바 끝 -->
 
@@ -262,7 +260,7 @@
 
 
 
-					
+
 					<form method="post" th:action="@{/removeMember}">
 						<input type="hidden" name="memberEmail"
 							th:value="${session.loginMember.memberEmail}"> <input

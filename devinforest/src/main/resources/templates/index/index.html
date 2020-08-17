@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		
-		<title>지식의 숲이 완성되는 곳</title>
-		
-		<!-- Custom fonts for this template-->
-		<link th:href="@{/vendor/fontawesome-free/css/all.min.css}"
-			rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-		
-		<!-- Custom styles for this template-->
-		<link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
-		
-		<!--  addAdmin template -->
-		<link th:href="@{/css/addAdmin.css}" rel="stylesheet">
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		
-	</head>
-	<body id="page-top">
-		<!-- Page Wrapper -->
-		<div id="wrapper">
-		
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>지식의 숲이 완성되는 곳</title>
+
+<!-- Custom fonts for this template-->
+<link th:href="@{/vendor/fontawesome-free/css/all.min.css}"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+
+<!--  addAdmin template -->
+<link th:href="@{/css/addAdmin.css}" rel="stylesheet">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+#searchBarContainer {
+	display: flex;
+	justify-content: space-between;
+}
+</style>
+</head>
+<body id="page-top">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
 		<!-- 사이드바 -->
 		<ul
 			class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion"
@@ -57,23 +66,23 @@
 			<div th:if="${memberName} != 'Guest'" class="sidebar-heading">회원</div>
 
 			<!-- Nav Item - 일반회원 관리 -->
-			<li th:if="${memberName} != 'Guest'" class="nav-item">
-				<a class="nav-link collapsed" href="#"
-				data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
+			<li th:if="${memberName} != 'Guest'" class="nav-item"><a
+				class="nav-link collapsed" href="#" data-toggle="collapse"
+				data-target="#collapse1" aria-expanded="true"
 				aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>일반회원</span>
-				</a>
+			</a>
 				<div id="collapse1" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">일반회원</h6>
-						<a class="collapse-item" th:href="@{/getMemberInfo(memberEmail=${session.loginMember.memberEmail})}">회원정보</a>
+						<a class="collapse-item"
+							th:href="@{/getMemberInfo(memberEmail=${session.loginMember.memberEmail})}">회원정보</a>
 						<a class="collapse-item" th:href="@{/getMemberList}">회원리스트</a> <a
 							class="collapse-item" href="#">채용 리스트</a> <a
 							class="collapse-item" href="#">면접제의 리스트</a> <a
 							class="collapse-item" href="#">문의&신고</a>
 					</div>
-				</div>
-			</li>
+				</div></li>
 
 
 			<!-- Divider -->
@@ -83,8 +92,8 @@
 			<div class="sidebar-heading">해시태그</div>
 
 			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="#"> <i
-					class="fas fa-fw fa-folder"></i> <span>해시태그</span>
+			<li class="nav-item"><a class="nav-link" href="/getHashtagList">
+					<i class="fas fa-fw fa-folder"></i> <span>해시태그</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -103,62 +112,61 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Q&A</h6>
-						<a class="collapse-item" th:href="@{/getQuestionList}">질문리스트</a>
-						<a th:if="${memberName} != 'Guest'" class="collapse-item" th:href="@{/addQuestion(memberName=${session.loginMember.memberName})}">질문하기</a>
+						<a class="collapse-item" th:href="@{/getQuestionList}">질문리스트</a> <a
+							th:if="${memberName} != 'Guest'" class="collapse-item"
+							th:href="@{/addQuestion(memberName=${session.loginMember.memberName})}">질문하기</a>
 					</div>
 				</div></li>
-				<!-- 구분 줄 -->
-				<hr class="sidebar-divider">
-	
-				<!-- 기업확인 - 사이드바 제목 -->
-				<div class="sidebar-heading">기업</div>
-	
-				<!-- 기업 -->
-				<li class="nav-item"><a class="nav-link collapsed" href="#"
-					data-toggle="collapse" data-target="#collapse5" aria-expanded="true"
-					aria-controls="collapsePages"> <i
-						class="fas fa-fw fa-chart-area"></i> <span>기업</span>
-				</a>
-					<div id="collapse5" class="collapse" aria-labelledby="headingPages"
-						data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
-							<h6 class="collapse-header">기업</h6>
-							<a class="collapse-item" th:href="@{/getCompanyList}">기업정보리스트</a>
-							<a class="collapse-item" href="#">기업의 면접제의 리스트 </a> <a
-								class="collapse-item" href="#">기업의 채용리스트</a>
-						</div>
-					</div></li>
-				<!-- 기업 끝 -->
-	
-				<!-- Divider -->
-				<hr class="sidebar-divider d-none d-md-block">
-	
-				<!-- Sidebar Toggler (Sidebar) -->
-				<div class="text-center d-none d-md-inline">
-					<button class="rounded-circle border-0" id="sidebarToggle"></button>
-				</div>
-	
-			</ul>
-			<!-- 사이드바 끝 -->
-			
-			<!-- Content Wrapper -->
-			<div id="content-wrapper" class="d-flex flex-column">
-	
-				<!-- Main Content -->
-				<div id="content">
-	
-					<!-- 상단 바 -->
-					<nav style="background: #fff !important" class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
-	
-						<!-- Sidebar Toggle (Topbar) -->
-						<button id="sidebarToggleTop"
-							class="btn btn-link d-md-none rounded-circle mr-3">
-							<i class="fa fa-bars"></i>
-						</button>
-	
-						<!-- 상단 검색창 -->
-						<div>
-							<form
+			<!-- 구분 줄 -->
+			<hr class="sidebar-divider">
+
+			<!-- 기업확인 - 사이드바 제목 -->
+			<div class="sidebar-heading">기업</div>
+
+			<!-- 기업 -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapse5" aria-expanded="true"
+				aria-controls="collapsePages"> <i
+					class="fas fa-fw fa-chart-area"></i> <span>기업</span>
+			</a>
+				<div id="collapse5" class="collapse" aria-labelledby="headingPages"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">기업</h6>
+						<a class="collapse-item" th:href="@{/getCompanyList}">기업정보리스트</a>
+						<a class="collapse-item" href="#">기업의 면접제의 리스트 </a> <a
+							class="collapse-item" href="#">기업의 채용리스트</a>
+					</div>
+				</div></li>
+			<!-- 기업 끝 -->
+
+			<!-- Divider -->
+			<hr class="sidebar-divider d-none d-md-block">
+
+
+
+		</ul>
+		<!-- 사이드바 끝 -->
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- 상단 바 -->
+				<nav style="background: #fff !important;"
+					class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+
+					<!-- Sidebar Toggle (Topbar) -->
+					<button id="sidebarToggleTop"
+						class="btn btn-link d-md-none rounded-circle mr-3">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<!-- 상단 검색창 -->
+					<div id="searchBarContainer">
+						<form
 							class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 							<div class="input-group">
 								<input type="text" class="form-control bg-light border-0 small"
@@ -171,150 +179,196 @@
 								</div>
 							</div>
 						</form>
-								
-						</div>
-						<a class="btn btn-success" th:href="@{/login}">로그인</a>
-						<!-- 상단 검색창 끝 -->
-	
-						<!-- Topbar Navbar -->
-						<ul class="navbar-nav ml-auto">
-	
-							<!-- Nav Item - Search Dropdown (Visible Only XS) -->
-							<li class="nav-item dropdown no-arrow d-sm-none"><a
-								class="nav-link dropdown-toggle" href="#" id="searchDropdown"
-								role="button" data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
-							</a> <!-- Dropdown - Messages -->
-								<div
-									class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-									aria-labelledby="searchDropdown">
-									<form class="form-inline mr-auto w-100 navbar-search">
-										<div class="input-group">
-											<input type="text"
-												class="form-control bg-light border-0 small"
-												placeholder="Search for..." aria-label="Search"
-												aria-describedby="basic-addon2">
-											<div class="input-group-append">
-												<button class="btn btn-primary" type="button">
-													<i class="fas fa-search fa-sm"></i>
-												</button>
-											</div>
+					</div>
+					<!-- 상단 검색창 끝 -->
+
+					<!-- Topbar Navbar -->
+					<ul class="navbar-nav ml-auto">
+
+						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
+						<li class="nav-item dropdown no-arrow d-sm-none"><a
+							class="nav-link dropdown-toggle" href="#" id="searchDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
+						</a> <!-- Dropdown - Messages -->
+							<div
+								class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+								aria-labelledby="searchDropdown">
+								<form class="form-inline mr-auto w-100 navbar-search">
+									<div class="input-group">
+										<input type="text"
+											class="form-control bg-light border-0 small"
+											placeholder="Search for..." aria-label="Search"
+											aria-describedby="basic-addon2">
+										<div class="input-group-append">
+											<button class="btn btn-primary" type="button">
+												<i class="fas fa-search fa-sm"></i>
+											</button>
 										</div>
-									</form>
-								</div>
-							</li>
-							<!-- 닉네임 나오는 곳 - 상단 바 -->
-							<li class="nav-item dropdown no-arrow">
-								<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${memberName}"></span>
-									<img class="img-profile rounded-circle" th:src="@{/img/img.png}">
+									</div>
+								</form>
+							</div></li>
+						<!-- 닉네임 나오는 곳 - 상단 바 -->
+						<li th:if="${accountKind} != 'G'"
+							class="nav-item dropdown no-arrow"><a
+							class="nav-link dropdown-toggle" href="#" id="userDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"
+								th:text="${memberName}"></span> <img
+								class="img-profile rounded-circle" th:src="@{/img/img.png}">
+						</a> <!-- Dropdown - User Information -->
+							<div th:if="${memberName} != 'Guest'"
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+								<a class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									로그아웃
 								</a>
-								<!-- Dropdown - User Information -->
-								<div th:if="${memberName} != 'Guest'" class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-									<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-									<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-										로그아웃
-									</a>
+							</div></li>
+						<li th:if="${accountKind} == 'G'"><a class="btn btn-success"
+							th:href="@{/login}">로그인</a></li>
+						<!-- 닉네임 나오는 곳 - 상단 바 끝-->
+					</ul>
+				</nav>
+				<!-- 상단 바 끝 -->
+
+				<!-- 내용 넣는 곳 -->
+				<div class="NotoSans">
+					<div class="p-3 pt-5"
+						style="background: linear-gradient(to top, #E5FFEB 0%, #B3F9C3 100%)">
+						<div class="container text-center py-5">
+							<h4 class="text-dark mb-0 mt-2 font-weight-bold">지식의 숲이
+								완성되는곳</h4>
+							<hr>
+							<img th:src="@{/img/devinforest3.png}" width="78%">
+
+							<hr>
+							<img class="mt-5 py-5 mb-4 d-none d-lg-inline"
+								th:src="@{/img/dev_focus.svg}" width="350px"><br> <img
+								class="mt-4 pb-5 mb-5 d-sm-none" th:src="@{/img/dev_focus.svg}"
+								width="90%"><br>
+							<h3 class="text-dark">
+								<strong>Dev In Forest</strong>는 개발지식기반 지식교류서비스 입니다.
+							</h3>
+
+							<div id="scroll" class="demo">
+								<a><span></span></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="container text-center py-5 my-2" id="how">
+						<h3 class="text-dark mb-0 mt-3 font-weight-bold">DevInForest는
+							어떻게 운영될까요?</h3>
+						<hr>
+						<img class="py-5 d-none d-lg-inline"
+							th:src="@{/img/shared_workspace.svg}" width="350px"><br>
+						<img class="py-5 d-sm-none" th:src="@{/img/shared_workspace.svg}"
+							width="90%"><br>
+						<h4 class="text-dark mb-3">
+							Dev In Forest에서는 사용자가 올린 질문이나 궁금한 내용, 고민에 대해 다른<br>사용자들이
+							자발적으로 답변을 등록하면서 지식을 주고받습니다.
+						</h4>
+					</div>
+
+					<div class="alert"
+						style="background: linear-gradient(to top, #E5FFEB 0%, #B3F9C3 100%);">
+						<div class="container text-center py-5 my-2">
+							<h3 class="text-dark mb-0 mt-3 font-weight-bold">Dev In
+								Forest는 원할한 교류서비스 유지를 위해 노력합니다.</h3>
+							<hr>
+							<img class="m-4 py-2 d-none d-lg-inline"
+								th:src="@{/img/shared_link.svg}" width="350px"><br> <img
+								class="m-4 py-2 d-sm-none" th:src="@{/img/shared_link.svg}"
+								width="90%"><br>
+							<h4 class="text-dark mb-3">
+								<strong>Dev In Forest</strong>는 원할한 교류 활동이 유지 될 수 있도록 교류 문화를 활성화
+								하고 유지하기 위해 힘씁니다.
+							</h4>
+						</div>
+					</div>
+
+					<div class="container text-center py-5 mb-4">
+						<h3 class="text-dark pt-2 font-weight-bold">Dev In Forest는
+							어떻게 만들어졌나요?</h3>
+						<hr>
+						<i class="fab fa-bootstrap text-dark fa-5x mx-3"></i> <i
+							class="fab fa-java text-dark fa-5x mx-3"></i> <i
+							class="fab fa-js-square text-dark fa-5x mx-3"></i> <i
+							class="fas fa-leaf text-dark fa-5x mx-3"></i> <i
+							class="fab fa-html5 text-dark fa-5x mx-3"></i> <i
+							class="fab fa-css3-alt text-dark fa-5x mx-3"></i> <i
+							class="fab fa-github text-dark fa-5x mx-3"></i>
+						<hr>
+						<small>Dev In Forest는 크루들의 정성으로 만들어졌습니다.</small>
+					</div>
+
+					<div class="alert-primary text-center p-5"
+						style="background: linear-gradient(to top, #E5FFEB 0%, #B3F9C3 100%);">
+						<div class="container text-center mb-2">
+							<h3 class="text-dark mb-0 mt-3 font-weight-bold">Dev In
+								Forest 크루를 소개합니다.</h3>
+							<hr>
+							<div class="row">
+								<div class="col-sm-2 text-center hov-p p-3 btn" align="center"
+									style="color: #FAF4C0">
+									<a href="https://github.com/jae-woo-ka"><img
+										class="rounded-circle shadow" th:src="@{/img/img.png}"
+										width="100px"></a>
+									<p class="text-dark my-1">가재우</p>
+									<small class="text-dark">팀장</small>
 								</div>
-							</li>
-							<!-- 닉네임 나오는 곳 - 상단 바 끝-->
-						</ul>
-					</nav>
-					<!-- 상단 바 끝 -->
-	
-					<!-- 내용 넣는 곳 -->
-					<div class="NotoSans">
-		<div class="p-3 pt-5" style="background: linear-gradient(to top, #E5FFEB  0%, #B3F9C3 100%)">
-			<div class="container text-center py-5">
-				<h4 class="text-dark mb-0 mt-2 font-weight-bold"> 지식의 숲이 완성되는곳 </h4>
-				<hr>
-				<img th:src="@{/img/devinforest3.png}" width="78%">
-				
-				<hr>
-				<img class="mt-5 py-5 mb-4 d-none d-lg-inline" th:src="@{/img/dev_focus.svg}" width="350px"><br>
-				<img class="mt-4 pb-5 mb-5 d-sm-none" th:src="@{/img/dev_focus.svg}" width="90%"><br>
-				<h3 class="text-dark"><strong>Dev In Forest</strong>는 개발지식기반 지식교류서비스 입니다.</h3>
-				
-				<div id="scroll" class="demo">
-				  <a><span></span></a>
+								<div class="col-sm-2 text-center hov-p p-3 btn" align="center"
+									style="color: #FAF4C0">
+									<a href="https://github.com/kkite6789"><img
+										class="rounded-circle shadow" th:src="@{/img/img.png}"
+										width="100px"></a>
+									<p class="text-dark my-1">김경태</p>
+									<small class="text-dark">팀원</small>
+								</div>
+								<div class="col-sm-2 text-center hov-p p-3 btn" align="center"
+									style="color: #FAF4C0">
+									<a href="https://github.com/yoonseon12"><img
+										class="rounded-circle shadow" th:src="@{/img/img.png}"
+										width="100px"></a>
+									<p class="text-dark my-1">이윤선</p>
+									<small class="text-dark">팀원</small>
+								</div>
+								<div class="col-sm-2 text-center hov-p p-3 btn" align="center"
+									style="color: #FAF4C0">
+									<a href="https://github.com/Hwanghyein"><img
+										class="rounded-circle shadow" th:src="@{/img/img.png}"
+										width="100px"></a>
+									<p class="text-dark my-1">황혜인</p>
+									<small class="text-dark">팀원</small>
+								</div>
+								<div class="col-sm-2 text-center hov-p p-3 btn" align="center"
+									style="color: #FAF4C0">
+									<a href="https://github.com/youngjoo-web"><img
+										class="rounded-circle shadow" th:src="@{/img/img.png}"
+										width="100px"></a>
+									<p class="text-dark my-1">백영주</p>
+									<small class="text-dark">팀원</small>
+								</div>
+								<div class="col-sm-2 text-center hov-p p-3 btn" align="center"
+									style="color: #FAF4C0">
+									<a href="https://github.com/dc-choi"><img
+										class="rounded-circle shadow" th:src="@{/img/img.png}"
+										width="100px"></a>
+									<p class="text-dark my-1">최동철</p>
+									<small class="text-dark">팀원</small>
+								</div>
+							</div>
+							<!-- row end -->
+						</div>
+						<small>이미지를 클릭하면 깃허브 사이트로 이동합니다.</small>
+					</div>
+
 				</div>
-			</div>
-		</div>
-		
-		<div class="container text-center py-5 my-2" id="how">
-			<h3 class="text-dark mb-0 mt-3 font-weight-bold">DevInForest는 어떻게 운영될까요?</h3>
-			<hr>
-			<img class="py-5 d-none d-lg-inline" th:src="@{/img/shared_workspace.svg}" width="350px"><br>
-			<img class="py-5 d-sm-none" th:src="@{/img/shared_workspace.svg}" width="90%"><br>
-			<h4 class="text-dark mb-3">Dev In Forest에서는 사용자가 올린 질문이나 궁금한 내용, 고민에 대해 다른<br>사용자들이 자발적으로 답변을 등록하면서 지식을 주고받습니다.</h4>
-		</div>
-		
-		<div class="alert" style="background: linear-gradient(to top, #E5FFEB  0%, #B3F9C3 100%);">
-			<div class="container text-center py-5 my-2">
-					<h3 class="text-dark mb-0 mt-3 font-weight-bold">Dev In Forest는 원할한 교류서비스 유지를 위해 노력합니다.</h3>
-					<hr>
-					<img class="m-4 py-2 d-none d-lg-inline" th:src="@{/img/shared_link.svg}" width="350px"><br>
-					<img class="m-4 py-2 d-sm-none" th:src="@{/img/shared_link.svg}" width="90%"><br>
-					<h4 class="text-dark mb-3"><strong>Dev In Forest</strong>는 원할한 교류 활동이 유지 될 수 있도록 교류 문화를 활성화 하고 유지하기 위해 힘씁니다.</h4>
-			</div>
-		</div>
-		
-		<div class="container text-center py-5 mb-4">
-			<h3 class="text-dark pt-2 font-weight-bold">Dev In Forest는 어떻게 만들어졌나요?</h3>
-			<hr>
-			<i class="fab fa-bootstrap text-dark fa-5x mx-3"></i>
-			<i class="fab fa-java text-dark fa-5x mx-3"></i>
-			<i class="fab fa-js-square text-dark fa-5x mx-3"></i>
-			<i class="fas fa-leaf text-dark fa-5x mx-3"></i>
-			<i class="fab fa-html5 text-dark fa-5x mx-3"></i>
-			<i class="fab fa-css3-alt text-dark fa-5x mx-3"></i>
-			<i class="fab fa-github text-dark fa-5x mx-3"></i>
-			<hr>
-			<small>Dev In Forest는 크루들의 정성으로 만들어졌습니다.</small>
-		</div>
-		
-		<div class="alert-primary text-center p-5" style="background: linear-gradient(to top, #E5FFEB  0%, #B3F9C3 100%);">
-			<div class="container text-center mb-2">
-				<h3 class="text-dark mb-0 mt-3 font-weight-bold">Dev In Forest 크루를 소개합니다.</h3>
-				<hr>
-				<div class="row">
-					<div class="col-sm-2 text-center hov-p p-3 btn" align="center" style="color:#FAF4C0">
-						<a href="https://github.com/jae-woo-ka"><img class="rounded-circle shadow" th:src="@{/img/img.png}" width="100px"></a>
-						<p class="text-dark my-1">가재우</p>
-						<small class="text-dark">팀장</small>
-					</div>
-					<div class="col-sm-2 text-center hov-p p-3 btn" align="center" style="color:#FAF4C0">
-						<a href="https://github.com/kkite6789"><img class="rounded-circle shadow" th:src="@{/img/img.png}" width="100px"></a>
-						<p class="text-dark my-1">김경태</p>
-						<small class="text-dark">팀원</small>
-					</div>
-					<div class="col-sm-2 text-center hov-p p-3 btn" align="center" style="color:#FAF4C0">
-						<a href="https://github.com/yoonseon12"><img class="rounded-circle shadow" th:src="@{/img/img.png}" width="100px"></a>
-						<p class="text-dark my-1">이윤선</p>
-						<small class="text-dark">팀원</small>
-					</div>
-					<div class="col-sm-2 text-center hov-p p-3 btn" align="center" style="color:#FAF4C0">
-						<a href="https://github.com/Hwanghyein"><img class="rounded-circle shadow" th:src="@{/img/img.png}" width="100px"></a>
-						<p class="text-dark my-1">황혜인</p>
-						<small class="text-dark">팀원</small>
-					</div>
-					<div class="col-sm-2 text-center hov-p p-3 btn" align="center" style="color:#FAF4C0">
-						<a href="https://github.com/youngjoo-web"><img class="rounded-circle shadow" th:src="@{/img/img.png}" width="100px"></a>
-						<p class="text-dark my-1">백영주</p>
-						<small class="text-dark">팀원</small>
-					</div>
-					<div class="col-sm-2 text-center hov-p p-3 btn" align="center" style="color:#FAF4C0">
-						<a href="https://github.com/dc-choi"><img class="rounded-circle shadow" th:src="@{/img/img.png}" width="100px"></a>
-						<p class="text-dark my-1">최동철</p>
-						<small class="text-dark">팀원</small>
-					</div>
-				</div><!-- row end -->
-			</div>
-			<small>이미지를 클릭하면 깃허브 사이트로 이동합니다.</small>
-		</div>
-		
-	</div><!-- content container end -->
-		
+				<!-- content container end -->
+
 				<!-- 하단 저작권 -->
 				<footer class="sticky-footer bg-white">
 					<div class="container my-auto">
@@ -324,44 +378,47 @@
 					</div>
 				</footer>
 				<!-- 하단 저작권 끝 -->
-		
+
 			</div>
 			<!-- End of Content Wrapper -->
-	
+
 		</div>
 		<!-- End of Page Wrapper -->
-	
+
 		<!-- Scroll to Top Button-->
 		<a class="scroll-to-top rounded" href="#page-top"> <i
 			class="fas fa-angle-up"></i>
 		</a>
 		<!-- Logout Modal-->
-		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
-						<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						<button class="close" type="button" data-dismiss="modal"
+							aria-label="Close">
 							<span aria-hidden="true">×</span>
 						</button>
 					</div>
 					<div class="modal-body">정말 로그아웃 하시겠습니까?</div>
 					<div class="modal-footer">
-						<button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+						<button class="btn btn-secondary" type="button"
+							data-dismiss="modal">취소</button>
 						<a class="btn btn-primary" th:href="@{/logout}">로그아웃</a>
 					</div>
 				</div>
 			</div>
 		</div>
-	
+
 		<!-- Bootstrap core JavaScript-->
 		<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
 		<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-	
+
 		<!-- Core plugin JavaScript-->
 		<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
-	
+
 		<!-- Custom scripts for all pages-->
 		<script th:src="@{/js/sb-admin-2.min.js}"></script>
-	</body>
+</body>
 </html>

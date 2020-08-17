@@ -108,7 +108,7 @@
 			<div class="sidebar-heading">해시태그</div>
 
 			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="#"> <i
+			<li class="nav-item"><a class="nav-link" href="/getHashtagList"> <i
 					class="fas fa-fw fa-folder"></i> <span>해시태그</span>
 			</a></li>
 
@@ -128,8 +128,9 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Q&A</h6>
-						<a class="collapse-item" th:href="@{/getQuestionList}">질문리스트</a>
-						<a class="collapse-item" th:href="@{/addQuestion(memberName=${session.loginMember.memberName})}">질문하기</a>  
+						<a class="collapse-item" th:href="@{/getQuestionList}">질문리스트</a> <a
+							class="collapse-item"
+							th:href="@{/addQuestion(memberName=${session.loginMember.memberName})}">질문하기</a>
 					</div>
 				</div></li>
 			<!-- 구분 줄 -->
@@ -159,12 +160,6 @@
 
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
-
-			<!-- Sidebar Toggler (Sidebar) -->
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
-			</div>
-
 		</ul>
 		<!-- 사이드바 끝 -->
 
@@ -282,27 +277,20 @@
 										전화번호 : </label> <input type="text" name="memberPhone"
 										th:value="${member.memberPhone}"> <br> <label>사용자
 										링크: </label> <input type="text" name="memberLink"
-										th:value="${member.memberLink}"> <br> 
-										<label>사용자성별: </label>
-										<select th:if="${member.memberGender ==null}" name="memberGender" th:value="${member.memberGender}">			
-											<option th:value="M">Male</option>
-											<option th:value="F">Female</option>
-										</select>
-									
-										<select th:if="${member.memberGender}=='M'" name="memberGender" th:value="${member.memberGender}">			
-											<option th:value="M">Male</option>
-											<option th:value="F">Female</option>
-										</select>
-									
-									
-										<select th:if="${member.memberGender}=='F'" name="memberGender" th:value="${member.memberGender}">
-											<option th:value="F">Female</option>
-											<option th:value="M">Male</option>
-										</select>
-					
-									
-
-									<br> <label>생년월일: </label> <input id="birthCheck"
+										th:value="${member.memberLink}"> <br> <label>사용자성별:
+									</label> <select th:if="${member.memberGender ==null}"
+										name="memberGender" th:value="${member.memberGender}">
+										<option th:value="M">Male</option>
+										<option th:value="F">Female</option>
+									</select> <select th:if="${member.memberGender}=='M'"
+										name="memberGender" th:value="${member.memberGender}">
+										<option th:value="M">Male</option>
+										<option th:value="F">Female</option>
+									</select> <select th:if="${member.memberGender}=='F'"
+										name="memberGender" th:value="${member.memberGender}">
+										<option th:value="F">Female</option>
+										<option th:value="M">Male</option>
+									</select> <br> <label>생년월일: </label> <input id="birthCheck"
 										type="Date" name="memberBirth"
 										th:value="${member.memberBirth}"> <br> <label>사용자
 										정보 : </label> <input type="text" name="memberAbout"

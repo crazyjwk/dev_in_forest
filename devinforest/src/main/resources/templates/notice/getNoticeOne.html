@@ -1,230 +1,251 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		
-		<title th:text="${#strings.abbreviate(notice.noticeTitle,16)}"></title>
-		
-		<!-- Custom fonts for this template-->
-		<link th:href="@{/vendor/fontawesome-free/css/all.min.css}"
-			rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-		
-		<!-- Custom styles for this template-->
-		<link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
-		
-		<!--  addAdmin template -->
-		<link th:href="@{/css/addAdmin.css}" rel="stylesheet">
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		
-		<style>
-			th{
-				text-align: center;
-				color:white;
-				background: #148b61;
-			}
-		</style>
-	</head>
-	<body id="page-top">
-	
-		<script src="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.js"></script>
-	  	<!-- Editor's Plugin -->
-	  	<script src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
-	  	
-		<!-- Page Wrapper -->
-		<div id="wrapper">
-			
-			<!-- 사이드 바 -->
-			<div>
-				<div th:include="/include/adminSide::adminSideBar" style="height: 100%"></div>
-			</div>
-			<!-- 사이드바 끝 -->
-			
-			<!-- Content Wrapper -->
-			<div id="content-wrapper" class="d-flex flex-column">
-	
-				<!-- Main Content -->
-				<div id="content">
-	
-					<!-- 상단 바 -->
-					<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-	
-						<!-- Sidebar Toggle (Topbar) -->
-						<button id="sidebarToggleTop"
-							class="btn btn-link d-md-none rounded-circle mr-3">
-							<i class="fa fa-bars"></i>
-						</button>
-	
-						<!-- 상단 검색창 -->
-						<form
-							class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-							<div class="input-group">
-								<input type="text" class="form-control bg-light border-0 small"
-									placeholder="Search for..." aria-label="Search"
-									aria-describedby="basic-addon2">
-								<div class="input-group-append">
-									<button class="btn btn-success" type="button">
-										<i class="fas fa-search fa-sm"></i>
-									</button>
-								</div>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title th:text="${#strings.abbreviate(notice.noticeTitle,16)}"></title>
+
+<!-- Custom fonts for this template-->
+<link th:href="@{/vendor/fontawesome-free/css/all.min.css}"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+
+<!--  addAdmin template -->
+<link th:href="@{/css/addAdmin.css}" rel="stylesheet">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+th {
+	text-align: center;
+	color: white;
+	background: #148b61;
+}
+</style>
+</head>
+<body id="page-top">
+
+	<script
+		src="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.js"></script>
+	<!-- Editor's Plugin -->
+	<script
+		src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- 사이드 바 -->
+		<div>
+			<div th:include="/include/adminSide::adminSideBar"
+				style="height: 100%"></div>
+		</div>
+		<!-- 사이드바 끝 -->
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- 상단 바 -->
+				<nav
+					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+					<!-- Sidebar Toggle (Topbar) -->
+					<button id="sidebarToggleTop"
+						class="btn btn-link d-md-none rounded-circle mr-3">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<!-- 상단 검색창 -->
+					<form
+						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+						<div class="input-group">
+							<input type="text" class="form-control bg-light border-0 small"
+								placeholder="Search for..." aria-label="Search"
+								aria-describedby="basic-addon2">
+							<div class="input-group-append">
+								<button class="btn btn-success" type="button">
+									<i class="fas fa-search fa-sm"></i>
+								</button>
 							</div>
-						</form>
-						<!-- 상단 검색창 끝 -->
-	
-						<!-- Topbar Navbar -->
-						<ul class="navbar-nav ml-auto">
-	
-							<!-- Nav Item - Search Dropdown (Visible Only XS) -->
-							<li class="nav-item dropdown no-arrow d-sm-none"><a
-								class="nav-link dropdown-toggle" href="#" id="searchDropdown"
-								role="button" data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
-							</a> <!-- Dropdown - Messages -->
-								<div
-									class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-									aria-labelledby="searchDropdown">
-									<form class="form-inline mr-auto w-100 navbar-search">
-										<div class="input-group">
-											<input type="text"
-												class="form-control bg-light border-0 small"
-												placeholder="Search for..." aria-label="Search"
-												aria-describedby="basic-addon2">
-											<div class="input-group-append">
-												<button class="btn btn-primary" type="button">
-													<i class="fas fa-search fa-sm"></i>
-												</button>
-											</div>
+						</div>
+					</form>
+					<!-- 상단 검색창 끝 -->
+
+					<!-- Topbar Navbar -->
+					<ul class="navbar-nav ml-auto">
+
+						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
+						<li class="nav-item dropdown no-arrow d-sm-none"><a
+							class="nav-link dropdown-toggle" href="#" id="searchDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
+						</a> <!-- Dropdown - Messages -->
+							<div
+								class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+								aria-labelledby="searchDropdown">
+								<form class="form-inline mr-auto w-100 navbar-search">
+									<div class="input-group">
+										<input type="text"
+											class="form-control bg-light border-0 small"
+											placeholder="Search for..." aria-label="Search"
+											aria-describedby="basic-addon2">
+										<div class="input-group-append">
+											<button class="btn btn-primary" type="button">
+												<i class="fas fa-search fa-sm"></i>
+											</button>
 										</div>
-									</form>
-								</div>
-							</li>
-	
-							<!-- 닉네임 나오는 곳 - 상단 바 -->
-							<li class="nav-item dropdown no-arrow">
-								<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${session.loginAdmin.adminName}"></span>
-									<img class="img-profile rounded-circle" th:src="@{/img/img.png}">
+									</div>
+								</form>
+							</div></li>
+
+						<!-- 닉네임 나오는 곳 - 상단 바 -->
+						<li class="nav-item dropdown no-arrow"><a
+							class="nav-link dropdown-toggle" href="#" id="userDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"
+								th:text="${session.loginAdmin.adminName}"></span> <img
+								class="img-profile rounded-circle" th:src="@{/img/img.png}">
+						</a> <!-- Dropdown - User Information -->
+							<div
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+								<a class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									로그아웃
 								</a>
-								<!-- Dropdown - User Information -->
-								<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-									<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-									<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-										로그아웃
-									</a>
-								</div>
-							</li>
-							<!-- 닉네임 나오는 곳 - 상단 바 끝-->
-						</ul>
-					</nav>
-					<!-- 상단 바 끝 -->
-	
-					<!-- 내용 넣는 곳 -->
-					<div class="container-fluid pt-4 px-5 content">
-					
+							</div></li>
+						<!-- 닉네임 나오는 곳 - 상단 바 끝-->
+					</ul>
+				</nav>
+				<!-- 상단 바 끝 -->
+
+				<!-- 내용 넣는 곳 -->
+				<div class="container-fluid pt-4 px-5 content">
+
+					<div>
+						<h3 class="text-gray-800 mb-2 font-weight-bold">공지사항</h3>
+					</div>
+					<hr>
+					<div class="card" style="padding: 20px;">
 						<div>
-							<h3 class="text-gray-800 mb-2 font-weight-bold">공지사항</h3>
+							<table class="table" style="margin: 0px;">
+								<tr>
+									<th width="10%">제목</th>
+									<td class="darkColor" colspan="3"
+										th:text="${notice.noticeTitle}"></td>
+								</tr>
+								<tr>
+									<th>작성자</th>
+									<td class="darkColor" width="50%" th:text="${notice.adminName}"></td>
+									<th width="10%">작성일</th>
+									<td class="darkColor" th:text="${notice.noticeDate}"></td>
+								</tr>
+							</table>
 						</div>
 						<hr>
-						<div class="card" style="padding:20px;">
-							<div>
-								<table class="table" style="margin: 0px;">
-									<tr>
-										<th width="10%">제목</th>
-										<td class="darkColor" colspan="3" th:text="${notice.noticeTitle}"></td>
-									</tr>
-									<tr>
-										<th>작성자</th>
-										<td class="darkColor" width="50%" th:text="${notice.adminName}"></td>
-										<th width="10%">작성일</th>
-										<td class="darkColor" th:text="${notice.noticeDate}"></td>
-									</tr>
-								</table>
+						<div class="card">
+							<div id="noticeContent" th:text="${notice.noticeContent}"
+								style="display: none"></div>
+							<div style="flex-direction: row; flex-wrap: nowrap;">
+								<div id="viewer" style="height: 300px; padding: 0px 10px;"></div>
 							</div>
-							<hr>
-							<div class="card">
-								<div id="noticeContent" th:text="${notice.noticeContent}" style="display: none"></div>
-								<div style="flex-direction: row; flex-wrap: nowrap;">
-									<div id="viewer" style="height: 300px; padding:0px 10px;"></div>
-								</div>
+						</div>
+						<hr>
+						<div class="row" style="padding: 0px 10px;">
+							<div class="col-sm-10 text-left">
+								<a class="btn pageBtn" th:href="@{/getNoticeList}">목록</a>
 							</div>
-							<hr>
-							<div class="row" style="padding: 0px 10px;">
-								<div class="col-sm-10 text-left">
-									<a class="btn pageBtn" th:href="@{/getNoticeList}">목록</a>
-								</div>
-								<div class="col-sm-2 text-right">
-									<button class="btn pageBtn" id="removeNoticeBtn" type="button">삭제</button>
-									<button class="btn pageBtn" id="modifyNoticeBtn" type="button">수정</button>
-									<form id="removeNoticeForm" method="post" th:action="@{/removeNotice(noticeNo=${notice.noticeNo})}"></form>
-									<form id="modifyNoticeForm" method="post" th:action="@{/modifyNoticeForm(noticeNo=${notice.noticeNo})}"></form>	
-								</div>
+							<div class="col-sm-2 text-right">
+								<button class="btn pageBtn" id="removeNoticeBtn" type="button">삭제</button>
+								<button class="btn pageBtn" id="modifyNoticeBtn" type="button">수정</button>
+								<form id="removeNoticeForm" method="post"
+									th:action="@{/removeNotice(noticeNo=${notice.noticeNo})}"></form>
+								<form id="modifyNoticeForm" method="post"
+									th:action="@{/modifyNoticeForm(noticeNo=${notice.noticeNo})}"></form>
 							</div>
-						</div>	
-						
-					</div>
-						<!-- /.container-fluid -->
-				</div>
-				<!-- End of Main Content -->
-		
-				<!-- 하단 저작권 -->
-				<footer class="sticky-footer bg-white">
-					<div class="container my-auto">
-						<div class="copyright text-center my-auto">
-							<span>Copyright &copy; Your Website 2020</span>
 						</div>
 					</div>
-				</footer>
-				<!-- 하단 저작권 끝 -->
-		
+
+				</div>
+				<!-- /.container-fluid -->
 			</div>
-			<!-- End of Content Wrapper -->
-	
+			<!-- End of Main Content -->
+
+			<!-- 하단 저작권 -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto">
+						<span>Copyright &copy; Your Website 2020</span>
+					</div>
+				</div>
+			</footer>
+			<!-- 하단 저작권 끝 -->
+
 		</div>
-		<!-- End of Page Wrapper -->
-	
-		<!-- Scroll to Top Button-->
-		<a class="scroll-to-top rounded" href="#page-top"> <i
-			class="fas fa-angle-up"></i>
-		</a>
-		<!-- Logout Modal-->
-		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
-						<button class="close" type="button" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
-					</div>
-					<div class="modal-body">정말 로그아웃 하시겠습니까?</div>
-					<div class="modal-footer">
-						<button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-						<a class="btn btn-primary" th:href="@{/logout}">로그아웃</a>
-					</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">정말 로그아웃 하시겠습니까?</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">취소</button>
+					<a class="btn btn-primary" th:href="@{/logout}">로그아웃</a>
 				</div>
 			</div>
 		</div>
-	
-		<!-- Bootstrap core JavaScript-->
-		<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-		<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-	
-		<!-- Core plugin JavaScript-->
-		<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
-	
-		<!-- Custom scripts for all pages-->
-		<script th:src="@{/js/sb-admin-2.min.js}"></script>
-		
-		<link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.min.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" />
-		<script src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
-	</body>
-	<script>
+	</div>
+
+	<!-- Bootstrap core JavaScript-->
+	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script th:src="@{/js/sb-admin-2.min.js}"></script>
+
+	<link rel="stylesheet"
+		href="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.min.css" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" />
+	<script
+		src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
+</body>
+<script>
 		let noticeContent = $('#noticeContent').text();
 		// 뷰어
 		const Viewer = toastui.Editor;

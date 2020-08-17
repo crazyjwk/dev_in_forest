@@ -77,7 +77,7 @@ public class MemberController {
 			return "redirect:/index";
 		}
 		memberService.findMemberPw(loginMember);
-		model.addAttribute("msg","병경된 비밀번호를 이메일로 보냈습니다.");
+		model.addAttribute("msg","변경된 비밀번호를 이메일로 보냈습니다.");
 		return "member/findMemberPw";
 	}
 	//회원이메일 찾기

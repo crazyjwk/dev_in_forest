@@ -152,7 +152,8 @@
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">면접제의</h6>
 						<a class="collapse-item" th:href="@{/getMemberListForCompany}">면접제의
-							하기</a> <a class="collapse-item" th:href="@{/suggestList(companyName=${session.loginCompany.companyKorName})}">면접제의
+							하기</a> <a class="collapse-item"
+							th:href="@{/suggestList(companyName=${session.loginCompany.companyKorName})}">면접제의
 							리스트</a>
 					</div>
 				</div></li>
@@ -161,12 +162,6 @@
 
 			<!-- 마지막 구분 줄 -->
 			<hr class="sidebar-divider d-none d-md-block">
-
-			<!-- < 버튼 -->
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
-			</div>
-
 		</ul>
 		<!-- 사이드바 끝 -->
 
@@ -273,8 +268,10 @@
 												th:value="${member.memberName}">
 											<input type="hidden" name="companyName"
 												th:value="${session.loginCompany.companyName}"> -->
-											<input type="hidden" name="companyName" th:value="${session.loginCompany.companyKorName}">
-											<input type="hidden" name="memberName" th:value="${member.memberName}">
+											<input type="hidden" name="companyName"
+												th:value="${session.loginCompany.companyKorName}"> <input
+												type="hidden" name="memberName"
+												th:value="${member.memberName}">
 											<button class="btn btn-sm pageBtn" type="submit">면접제의하기</button>
 										</form>
 

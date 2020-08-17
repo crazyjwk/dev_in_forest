@@ -57,20 +57,20 @@ public class QuestionController {
 //			System.out.println(memberName + " : " + accountKind + " : " + companyEmail +" <---- company Session");
 //		}
 		
-//		if(session.getAttribute("loginMember") != null) {
-//			memberName = ((LoginMember)session.getAttribute("loginMember")).getMemberName();
-//			accountKind = ((LoginMember)session.getAttribute("loginMember")).getAccountKind();
-//			System.out.println(memberName + " : " + accountKind + " <---- member Session");
-//		} else if(session.getAttribute("loginAdmin") != null) {
-//			memberName = ((LoginAdmin)session.getAttribute("loginAdmin")).getAdminName();
-//			accountKind = ((LoginAdmin)session.getAttribute("loginAdmin")).getAccountKind();
-//			System.out.println(memberName + " : " + accountKind+ " <---- admin Session");
-//		} else if(session.getAttribute("loginCompany") != null) {
-//			memberName = ((LoginCompany)session.getAttribute("loginCompany")).getCompanyKorName();
-//			accountKind = "C";
-//			companyEmail = ((LoginCompany)session.getAttribute("loginCompany")).getCompanyEmail();
-//			System.out.println(memberName + " : " + accountKind + " : " + companyEmail +" <---- company Session");
-//		}
+		if(session.getAttribute("loginMember") != null) {
+			memberName = ((LoginMember)session.getAttribute("loginMember")).getMemberName();
+			accountKind = ((LoginMember)session.getAttribute("loginMember")).getAccountKind();
+			System.out.println(memberName + " : " + accountKind + " <---- member Session");
+		} else if(session.getAttribute("loginAdmin") != null) {
+			memberName = ((LoginAdmin)session.getAttribute("loginAdmin")).getAdminName();
+			accountKind = ((LoginAdmin)session.getAttribute("loginAdmin")).getAccountKind();
+			System.out.println(memberName + " : " + accountKind+ " <---- admin Session");
+		} else if(session.getAttribute("loginCompany") != null) {
+			memberName = ((LoginCompany)session.getAttribute("loginCompany")).getCompanyKorName();
+			accountKind = "C";
+			companyEmail = ((LoginCompany)session.getAttribute("loginCompany")).getCompanyEmail();
+			System.out.println(memberName + " : " + accountKind + " : " + companyEmail +" <---- company Session");
+		}
 		
 		Map<String, Object> questionList = questionService.getQuestionList(currentPage, searchWord);
 		List<QuestionHashtag> questionHashtagList = questionService.getQuestionHashtagList();

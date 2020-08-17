@@ -146,8 +146,7 @@ $(document).ready(function(){
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Q&A</h6>
-						<a class="collapse-item" th:href="@{/getQuestionList}">질문목록
-						</a>
+						<a class="collapse-item" th:href="@{/getQuestionList}">질문목록 </a>
 					</div>
 				</div></li>
 			<!-- 공지&FAQ 관리 끝 -->
@@ -197,12 +196,6 @@ $(document).ready(function(){
 
 			<!-- 마지막 구분 줄 -->
 			<hr class="sidebar-divider d-none d-md-block">
-
-			<!-- < 버튼 -->
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
-			</div>
-
 		</ul>
 		<!-- 사이드바 끝 -->
 
@@ -220,16 +213,17 @@ $(document).ready(function(){
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-					
-					
+
+
 						<form id="form" method="post" th:action="@{/modifyRecruit}">
-						
+
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
 
 								<tr>
 									<td>채용공고제목</td>
-									<td><input type="text" name="recruitTitle" th:value="${recruit.recruitTitle}"></td>
+									<td><input type="text" name="recruitTitle"
+										th:value="${recruit.recruitTitle}"></td>
 								</tr>
 							</table>
 							<div id="editor"></div>
@@ -240,10 +234,11 @@ $(document).ready(function(){
 								cellspacing="0">
 								<tr>
 									<td>채용공고내공제한</td>
-									<td><input type="text" name="companyReputation" th:value="${recruit.companyReputation}"></td>
+									<td><input type="text" name="companyReputation"
+										th:value="${recruit.companyReputation}"></td>
 								</tr>
 							</table>
-							
+
 							<br>
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
@@ -311,7 +306,8 @@ $(document).ready(function(){
 							<input type="hidden" id="recruitContent" name="recruitContent">
 							<input type="hidden" name="recruitNo"
 								th:value="${recruit.recruitNo}">
-							<button id="modifyRecruitBtn" class="btn btn-sm pageBtn" type="button" th:text="수정하기"></button>
+							<button id="modifyRecruitBtn" class="btn btn-sm pageBtn"
+								type="button" th:text="수정하기"></button>
 						</form>
 
 

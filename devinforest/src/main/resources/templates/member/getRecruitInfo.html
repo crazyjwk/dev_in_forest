@@ -108,8 +108,8 @@
 			<div class="sidebar-heading">해시태그</div>
 
 			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="#"> <i
-					class="fas fa-fw fa-folder"></i> <span>해시태그</span>
+			<li class="nav-item"><a class="nav-link" href="/getHashtagList">
+					<i class="fas fa-fw fa-folder"></i> <span>해시태그</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -128,8 +128,9 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Q&A</h6>
-						<a class="collapse-item" th:href="@{/getQuestionList}">질문리스트</a>
-						<a class="collapse-item" th:href="@{/addQuestion(memberName=${session.loginMember.memberName})}">질문하기</a>  
+						<a class="collapse-item" th:href="@{/getQuestionList}">질문리스트</a> <a
+							class="collapse-item"
+							th:href="@{/addQuestion(memberName=${session.loginMember.memberName})}">질문하기</a>
 					</div>
 				</div></li>
 			<!-- 구분 줄 -->
@@ -159,12 +160,6 @@
 
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
-
-			<!-- Sidebar Toggler (Sidebar) -->
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
-			</div>
-
 		</ul>
 		<!-- 사이드바 끝 -->
 
@@ -319,32 +314,32 @@
 									</tr>
 								</table>
 							</div>
-							
-								
-									<div th:if="${suggestType!=''}">
-										<form method="post" action="/modifySuggestType">
-											<input type="hidden" name="recruitNo" th:value="${recruitNo}">
-											<input type="hidden" name="memberName"
-												th:value="${memberName}"> <input type="hidden"
-												name="suggestType" th:value="${suggestType}">
-											<button class="btn btn-sm pageBtn" type="submit">
-												<div th:if="${suggestType}=='Y'">거부하기</div>
-												<div th:if="${suggestType}=='N'">수락하기</div>
-											</button>
-										</form>
-									</div>
 
-								
-								<div th:if="${suggestType==''}">
-									<form id="form" method="post" th:action="@{/addApply}">
-										<input id="recruitNo" type="hidden" name="recruitNo"
-											th:value="${recruit.recruitNo}"> <input
-											id="memberEmail" type="hidden" name="memberEmail"
-											th:value="${session.loginMember.memberEmail}">
-										<button class="btn btn-sm pageBtn" type="submit">신청하기</button>
-									</form>
+
+							<div th:if="${suggestType!=''}">
+								<form method="post" action="/modifySuggestType">
+									<input type="hidden" name="recruitNo" th:value="${recruitNo}">
+									<input type="hidden" name="memberName" th:value="${memberName}">
+									<input type="hidden" name="suggestType"
+										th:value="${suggestType}">
+									<button class="btn btn-sm pageBtn" type="submit">
+										<div th:if="${suggestType}=='Y'">거부하기</div>
+										<div th:if="${suggestType}=='N'">수락하기</div>
+									</button>
+								</form>
 							</div>
-							
+
+
+							<div th:if="${suggestType==''}">
+								<form id="form" method="post" th:action="@{/addApply}">
+									<input id="recruitNo" type="hidden" name="recruitNo"
+										th:value="${recruit.recruitNo}"> <input
+										id="memberEmail" type="hidden" name="memberEmail"
+										th:value="${session.loginMember.memberEmail}">
+									<button class="btn btn-sm pageBtn" type="submit">신청하기</button>
+								</form>
+							</div>
+
 
 							<span th:text="${applyMsg}"></span>
 

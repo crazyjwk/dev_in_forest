@@ -3,307 +3,377 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-  <title>관리자 홈</title>
+<title>관리자 홈</title>
 
-  <!-- Custom fonts for this template-->
-  <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<!-- Custom fonts for this template-->
+<link th:href="@{/vendor/fontawesome-free/css/all.min.css}"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
 
-  <!-- Custom styles for this template-->
-  <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+<!-- Custom styles for this template-->
+<link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
 </head>
 
 <body id="page-top">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
 
-    <!-- 사이드 바 -->
-	<div>
-		<div th:include="/include/adminSide::adminSideBar" style="height: 100%"></div>
-	</div>
-	<!-- 사이드바 끝 -->
+		<!-- 사이드 바 -->
+		<div>
+			<div th:include="/include/adminSide::adminSideBar"
+				style="height: 100%"></div>
+		</div>
+		<!-- 사이드바 끝 -->
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
 
-      <!-- Main Content -->
-      <div id="content">
+			<!-- Main Content -->
+			<div id="content">
 
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+				<!-- Topbar -->
+				<nav
+					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+					<!-- Sidebar Toggle (Topbar) -->
+					<button id="sidebarToggleTop"
+						class="btn btn-link d-md-none rounded-circle mr-3">
+						<i class="fa fa-bars"></i>
+					</button>
 
-          <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-success" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form>
+					<!-- Topbar Search -->
+					<form
+						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+						<div class="input-group">
+							<input type="text" class="form-control bg-light border-0 small"
+								placeholder="Search for..." aria-label="Search"
+								aria-describedby="basic-addon2">
+							<div class="input-group-append">
+								<button class="btn btn-success" type="button">
+									<i class="fas fa-search fa-sm"></i>
+								</button>
+							</div>
+						</div>
+					</form>
 
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
+					<!-- Topbar Navbar -->
+					<ul class="navbar-nav ml-auto">
 
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
+						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
+						<li class="nav-item dropdown no-arrow d-sm-none"><a
+							class="nav-link dropdown-toggle" href="#" id="searchDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
+						</a> <!-- Dropdown - Messages -->
+							<div
+								class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+								aria-labelledby="searchDropdown">
+								<form class="form-inline mr-auto w-100 navbar-search">
+									<div class="input-group">
+										<input type="text"
+											class="form-control bg-light border-0 small"
+											placeholder="Search for..." aria-label="Search"
+											aria-describedby="basic-addon2">
+										<div class="input-group-append">
+											<button class="btn btn-primary" type="button">
+												<i class="fas fa-search fa-sm"></i>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div></li>
 
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${session.loginAdmin.adminName}"></span>
-                <img class="img-profile rounded-circle" th:src="@{/img/img.png}">
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                   	로그아웃
-                </a>
-              </div>
-            </li>
+						<!-- Nav Item - User Information -->
+						<li class="nav-item dropdown no-arrow"><a
+							class="nav-link dropdown-toggle" href="#" id="userDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"
+								th:text="${session.loginAdmin.adminName}"></span> <img
+								class="img-profile rounded-circle" th:src="@{/img/img.png}">
+						</a> <!-- Dropdown - User Information -->
+							<div
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+								<a class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									로그아웃
+								</a>
+							</div></li>
 
-          </ul>
+					</ul>
 
-        </nav>
-        <!-- End of Topbar -->
+				</nav>
+				<!-- End of Topbar -->
 
-      <!-- Begin Page Content -->
-        <div class="container-fluid pt-4 px-5 content"> 
-          <!-- Content Row 1 -->
-          <div class="row mt-3">
-          
-			<!-- 회원관리 -->
-            <div class="col-xl-3 col-md-6 mb-5 px-3">
-              <div class="card shadow border-0 p-5"> 
-              	<!-- card Header -->
-              	<h4 class="text-dark font-weight-bold mb-4">회원 관리</h4>
-              	<!-- card Content -->
-              	<div class="row text-left mb-3">
-           			<h5 class="text-dark font-weight-bold mx-3 my-2">일반회원 관리</h5>
-              		<div class="col-xl-12  mb-2">
-              			<div class="card border-0 bg-light text-center hov-p">
-              				<h5 class="text-dark font-weight-bold mx-1 my-4"><a class="nav-link text-info" th:href="@{/admin/getMemberList}">일반회원조회</a></h5>
-              			</div>
-              		</div>
-              		<div class="col-xl-12 mb-2">
-              			<div class="card border-0 bg-light text-center">
-              				<h5 class="text-dark font-weight-bold mx-1 my-4"><a class="nav-link text-info" th:href="@{/admin/getRemoveMemberList}">탈퇴회원조회</a></h5>
-              			</div>
-              		</div> 
-              		<div class="col-xl-12 mb-2">
-              			<div class="card border-0 bg-light text-center">
-              				<h5 class="text-dark font-weight-bold mx-1 my-4"><a class="nav-link text-info" th:href="@{/admin/getBlackMemberList}">블랙회원조회</a></h5>
-              			</div>
-              		</div> 
-              	</div><!-- row end -->
-              	
-              	<div class="row text-left mb-1">	
-              		<h5 class="text-dark font-weight-bold mx-3 my-2">기업회원 관리</h5>
-              		<div class="col-xl-12 mb-2">
-              			<div class="card border-0 bg-light text-center hov-g">
-              				<h5 class="text-dark font-weight-bold mx-1 my-4"><a class="nav-link text-info" th:href="@{/admin/getCompanyList}">기업회원조회</a></h5>
-              			</div>
-              		</div>  
-              	</div><!-- row end -->
-              	<!-- content end -->
-              </div><!-- card end -->
-            </div><!-- col end -->
-			
-			<!-- 공지 및 문의 -->
-            <div class="col-xl-3 col-md-6 mb-4 px-3">
-              <div class="card shadow border-0 p-5"> 
-              	<!-- card Header -->
-              	<h4 class="text-dark font-weight-bold mb-4">공지 및 문의</h4>
-              	<!-- card Content -->
-              	<div class="row text-left mb-3">
-              		<h5 class="text-dark font-weight-bold mx-3 my-2">공지 & FAQ관리</h5>
-              		<div class="col-xl-12 mb-2">
-              			<div class="card border-0 bg-light text-center">
-              				<h5 class="text-dark font-weight-bold mx-1 my-4"><a class="nav-link text-info" th:href="@{/getNoticeList}">공지사항 관리</a></h5>
-              			</div>
-              		</div>
-              		<div class="col-xl-12 mb-2">
-              			<div class="card border-0 bg-light text-center">
-              				<h5 class="text-dark font-weight-bold mx-1 my-4"><a class="nav-link text-info" th:href="@{/getFAQList}">FAQ 관리</a></h5>
-              			</div>
-              		</div>
-              	</div><!-- row end -->
-              	
-              	<div class="row text-left mb-1">
-              		<h5 class="text-dark font-weight-bold mx-3 my-2">문의 & 신고관리</h5>
-              		<div class="col-xl-12 mb-2">
-              			<div class="card border-0 bg-light text-center">
-              				<h5 class="text-dark font-weight-bold mx-1 my-4"><a class="nav-link text-info" th:href="@{/getInquiryList}">문의사항 관리</a></h5>
-              			</div>
-              		</div>
-              		<div class="col-xl-12 mb-2">
-              			<div class="card border-0 bg-light text-center">
-              				<h5 class="text-dark font-weight-bold mx-1 my-4"><a class="nav-link text-info" th:href="@{/getReportList}">신고 관리</a></h5>
-              			</div>
-              		</div>
-              	</div><!-- row end -->
-              	<!-- content end -->
-              </div><!-- card end -->
-            </div><!-- col end -->
-            
-            <!-- 통계 확인 -->
-            <div class="col-xl-3 col-md-6 mb-4 px-3">
-              <div class="card shadow border-0 p-5"> 
-              	<!-- card Header -->
-              	<h4 class="text-dark font-weight-bold mb-4">통계 확인</h4>
-              	<!-- card Content -->
-              	<div class="row text-left mb-1">
-              		<h5 class="text-dark font-weight-bold mx-3 my-2">통계</h5>
-              		<div class="col-xl-12 mb-3">
-              			<div class="card border-0 bg-light text-center">
-              				<h5 class="text-dark font-weight-bold mx-1 my-5"><a class="nav-link text-info" href="#">질문 통계</a></h5>
-              			</div>
-              		</div>
-              		<div class="col-xl-12 mb-3">
-              			<div class="card border-0 bg-light text-center">
-              				<h5 class="text-dark font-weight-bold mx-1 my-5"><a class="nav-link text-info" href="#">답변 통계</a></h5>
-              			</div>
-              		</div>
-              		<div class="col-xl-12">
-              			<div class="card border-0 bg-light text-center">
-              				<h5 class="text-dark font-weight-bold mx-1 my-5"><a class="nav-link text-info" href="#">회원가입 통계</a></h5>
-              			</div>
-              		</div>
-              	</div><!-- row end -->
-              	<!-- content end -->
-              </div><!-- card end -->
-            </div><!-- col end -->
-            
-            <!-- 관리자 설정 -->
-            <div class="col-xl-3 col-md-6 mb-4 px-3">
-              <div class="card shadow border-0 p-5"> 
-              	<!-- card Header -->
-              	<h4 class="text-dark font-weight-bold mb-4">관리자 설정</h4>
-              	<!-- card Content -->
-              	<div class="row text-center mb-5">
-              		<h5 class="text-dark font-weight-bold mx-3 my-2">관리자</h5>
-              		<div class="col-xl-12 mb-3">
-              			<div class="card border-0 bg-light text-center">
-              				<h5 class="text-dark font-weight-bold mx-1 my-4"><a class="nav-link text-info" th:href="@{/getAdminList}">관리자 조회</a></h5>
-              			</div>
-              		</div>
-              		<div class="col-xl-12">
-              			<div class="card border-0 bg-light text-center">
-              				<h5 class="text-dark font-weight-bold mx-1 my-4"><a class="nav-link text-info" th:href="@{/addAdmin}">관리자 등록</a></h5>
-              			</div>
-              		</div>  
-              	</div><!-- row end --> 
-              	
-              	<div class="row mb-2">
-              		<div class="col-xl-12 mb-1">
-	              		<h4 class="text-dark font-weight-bold mb-4">회원 재가입</h4>
-	              		<div class="col-xl-12 mb-1">
-	              			<div class="card border-0 bg-light text-center">
-	              				<h5 class="text-dark font-weight-bold mx-1 my-5">
-	              				<a class="nav-link text-info" th:href="@{/getRestorationList}">
-	              					<span>재가입 요청</span>
-	              					<span style="color:black;" th:text="${restorationCount}"></span>
-	              				</a>
-	              				</h5>
-	              			</div>
-	              		</div>
-					</div><!-- row end --> 
-              	
-            	</div><!-- card end -->
-              
-              
-            </div><!-- col end -->
-            
+				<!-- Begin Page Content -->
+				<div class="container-fluid pt-4 px-5 content">
+					<!-- Content Row 1 -->
+					<div class="row mt-3">
+
+						<!-- 회원관리 -->
+						<div class="col-xl-3 col-md-6 mb-5 px-3">
+							<div class="card shadow border-0 p-5">
+								<!-- card Header -->
+								<h4 class="text-dark font-weight-bold mb-4">회원 관리</h4>
+								<!-- card Content -->
+								<div class="row text-left mb-3">
+									<h5 class="text-dark font-weight-bold mx-3 my-2">일반회원 관리</h5>
+									<div class="col-xl-12  mb-2">
+										<div class="card border-0 bg-light text-center hov-p">
+											<h5 class="text-dark font-weight-bold mx-1 my-4">
+												<a class="nav-link text-info"
+													th:href="@{/admin/getMemberList}">일반회원조회</a>
+											</h5>
+										</div>
+									</div>
+									<div class="col-xl-12 mb-2">
+										<div class="card border-0 bg-light text-center">
+											<h5 class="text-dark font-weight-bold mx-1 my-4">
+												<a class="nav-link text-info"
+													th:href="@{/admin/getRemoveMemberList}">탈퇴회원조회</a>
+											</h5>
+										</div>
+									</div>
+									<div class="col-xl-12 mb-2">
+										<div class="card border-0 bg-light text-center">
+											<h5 class="text-dark font-weight-bold mx-1 my-4">
+												<a class="nav-link text-info"
+													th:href="@{/admin/getBlackMemberList}">블랙회원조회</a>
+											</h5>
+										</div>
+									</div>
+								</div>
+								<!-- row end -->
+
+								<div class="row text-left mb-1">
+									<h5 class="text-dark font-weight-bold mx-3 my-2">기업회원 관리</h5>
+									<div class="col-xl-12 mb-2">
+										<div class="card border-0 bg-light text-center hov-g">
+											<h5 class="text-dark font-weight-bold mx-1 my-4">
+												<a class="nav-link text-info"
+													th:href="@{/admin/getCompanyList}">기업회원조회</a>
+											</h5>
+										</div>
+									</div>
+								</div>
+								<!-- row end -->
+								<!-- content end -->
+							</div>
+							<!-- card end -->
+						</div>
+						<!-- col end -->
+
+						<!-- 공지 및 문의 -->
+						<div class="col-xl-3 col-md-6 mb-4 px-3">
+							<div class="card shadow border-0 p-5">
+								<!-- card Header -->
+								<h4 class="text-dark font-weight-bold mb-4">공지 및 문의</h4>
+								<!-- card Content -->
+								<div class="row text-left mb-3">
+									<h5 class="text-dark font-weight-bold mx-3 my-2">공지 &
+										FAQ관리</h5>
+									<div class="col-xl-12 mb-2">
+										<div class="card border-0 bg-light text-center">
+											<h5 class="text-dark font-weight-bold mx-1 my-4">
+												<a class="nav-link text-info" th:href="@{/getNoticeList}">공지사항
+													관리</a>
+											</h5>
+										</div>
+									</div>
+									<div class="col-xl-12 mb-2">
+										<div class="card border-0 bg-light text-center">
+											<h5 class="text-dark font-weight-bold mx-1 my-4">
+												<a class="nav-link text-info" th:href="@{/getFAQList}">FAQ
+													관리</a>
+											</h5>
+										</div>
+									</div>
+								</div>
+								<!-- row end -->
+
+								<div class="row text-left mb-1">
+									<h5 class="text-dark font-weight-bold mx-3 my-2">문의 & 신고관리</h5>
+									<div class="col-xl-12 mb-2">
+										<div class="card border-0 bg-light text-center">
+											<h5 class="text-dark font-weight-bold mx-1 my-4">
+												<a class="nav-link text-info" th:href="@{/getInquiryList}">문의사항
+													관리</a>
+											</h5>
+										</div>
+									</div>
+									<div class="col-xl-12 mb-2">
+										<div class="card border-0 bg-light text-center">
+											<h5 class="text-dark font-weight-bold mx-1 my-4">
+												<a class="nav-link text-info" th:href="@{/getReportList}">신고
+													관리</a>
+											</h5>
+										</div>
+									</div>
+								</div>
+								<!-- row end -->
+								<!-- content end -->
+							</div>
+							<!-- card end -->
+						</div>
+						<!-- col end -->
+
+						<!-- 통계 확인 -->
+						<div class="col-xl-3 col-md-6 mb-4 px-3">
+							<div class="card shadow border-0 p-5">
+								<!-- card Header -->
+								<h4 class="text-dark font-weight-bold mb-4">통계 확인</h4>
+								<!-- card Content -->
+								<div class="row text-left mb-1">
+									<h5 class="text-dark font-weight-bold mx-3 my-2">통계</h5>
+									<div class="col-xl-12 mb-3">
+										<div class="card border-0 bg-light text-center">
+											<h5 class="text-dark font-weight-bold mx-1 my-5">
+												<a class="nav-link text-info" href="#">질문 통계</a>
+											</h5>
+										</div>
+									</div>
+									<div class="col-xl-12 mb-3">
+										<div class="card border-0 bg-light text-center">
+											<h5 class="text-dark font-weight-bold mx-1 my-5">
+												<a class="nav-link text-info" href="#">답변 통계</a>
+											</h5>
+										</div>
+									</div>
+									<div class="col-xl-12">
+										<div class="card border-0 bg-light text-center">
+											<h5 class="text-dark font-weight-bold mx-1 my-5">
+												<a class="nav-link text-info" href="#">회원가입 통계</a>
+											</h5>
+										</div>
+									</div>
+								</div>
+								<!-- row end -->
+								<!-- content end -->
+							</div>
+							<!-- card end -->
+						</div>
+						<!-- col end -->
+
+						<!-- 관리자 설정 -->
+						<div class="col-xl-3 col-md-6 mb-4 px-3">
+							<div class="card shadow border-0 p-5">
+								<!-- card Header -->
+								<h4 class="text-dark font-weight-bold mb-4">관리자 설정</h4>
+								<!-- card Content -->
+								<div class="row text-center mb-5">
+									<h5 class="text-dark font-weight-bold mx-3 my-2">관리자</h5>
+									<div class="col-xl-12 mb-3">
+										<div class="card border-0 bg-light text-center">
+											<h5 class="text-dark font-weight-bold mx-1 my-4">
+												<a class="nav-link text-info" th:href="@{/getAdminList}">관리자
+													조회</a>
+											</h5>
+										</div>
+									</div>
+									<div class="col-xl-12">
+										<div class="card border-0 bg-light text-center">
+											<h5 class="text-dark font-weight-bold mx-1 my-4">
+												<a class="nav-link text-info" th:href="@{/addAdmin}">관리자
+													등록</a>
+											</h5>
+										</div>
+									</div>
+								</div>
+								<!-- row end -->
+
+								<div class="row mb-2">
+									<div class="col-xl-12 mb-1">
+										<h4 class="text-dark font-weight-bold mb-4">회원 재가입</h4>
+										<div class="col-xl-12 mb-1">
+											<div class="card border-0 bg-light text-center">
+												<h5 class="text-dark font-weight-bold mx-1 my-5">
+													<a class="nav-link text-info"
+														th:href="@{/getRestorationList}"> <span>재가입 요청</span>
+														<span style="color: black;" th:text="${restorationCount}"></span>
+													</a>
+												</h5>
+											</div>
+										</div>
+									</div>
+									<!-- row end -->
+
+								</div>
+								<!-- card end -->
+
+
+							</div>
+							<!-- col end -->
+
+						</div>
+					</div>
+					<!-- /.container-fluid -->
+				</div>
+				<!-- End of Main Content -->
+
+				<!-- Footer -->
+				<footer class="sticky-footer bg-white">
+					<div class="container my-auto">
+						<div class="copyright text-center my-auto">
+							<span>Copyright &copy; Your Website 2020</span>
+						</div>
+					</div>
+				</footer>
+				<!-- End of Footer -->
+
 			</div>
-        </div>
-        <!-- /.container-fluid -->
-      </div>
-      <!-- End of Main Content -->
+			<!-- End of Content Wrapper -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
+		</div>
+		<!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Content Wrapper -->
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top"> <i
+			class="fas fa-angle-up"></i>
+		</a>
 
-  </div>
-  <!-- End of Page Wrapper -->
+		<!-- Logout Modal-->
+		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
+						<button class="close" type="button" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-body">정말 로그아웃 하시겠습니까?</div>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button"
+							data-dismiss="modal">취소</button>
+						<a class="btn btn-primary" th:href="@{/logout}">로그아웃</a>
+					</div>
+				</div>
+			</div>
+		</div>
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+		<!-- Bootstrap core JavaScript-->
+		<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+		<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">정말 로그아웃 하시겠습니까?</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-          <a class="btn btn-primary" th:href="@{/logout}">로그아웃</a>
-        </div>
-      </div>
-    </div>
-  </div>
+		<!-- Core plugin JavaScript-->
+		<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
 
-  <!-- Bootstrap core JavaScript-->
-  <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-  <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script th:src="@{/js/sb-admin-2.min.js}"></script>
-
-
-
+		<!-- Custom scripts for all pages-->
+		<script th:src="@{/js/sb-admin-2.min.js}"></script>
 </body>
 
 </html>

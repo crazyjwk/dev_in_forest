@@ -32,7 +32,8 @@
 
 		<!-- 사이드 바 -->
 		<div>
-			<div th:include="/include/adminSide::adminSideBar" style="height: 100%"></div>
+			<div th:include="/include/adminSide::adminSideBar"
+				style="height: 100%"></div>
 		</div>
 		<!-- 사이드바 끝 -->
 		<!-- Content Wrapper -->
@@ -97,9 +98,10 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${session.loginAdmin.adminName}"></span>
-								<img class="img-profile rounded-circle" th:src="@{/img/img.png}">
+							aria-expanded="false"> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"
+								th:text="${session.loginAdmin.adminName}"></span> <img
+								class="img-profile rounded-circle" th:src="@{/img/img.png}">
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -125,37 +127,46 @@
 									<!-- Background image for card set in CSS! -->
 								</div>
 								<div class="card-body">
-									<h4 class="text-dark font-weight-bold mb-4 text-center">관리자 등록</h4>
-									<form class="form-signin" id="addAdminForm" method="post" th:action="@{/addAdmin}">
-										<input id="adminEmail" type="hidden" name="adminEmail" value="">
-										<input id="adminName" type="hidden" name="adminName" value="">
+									<h4 class="text-dark font-weight-bold mb-4 text-center">관리자
+										등록</h4>
+									<form class="form-signin" id="addAdminForm" method="post"
+										th:action="@{/addAdmin}">
+										<input id="adminEmail" type="hidden" name="adminEmail"
+											value=""> <input id="adminName" type="hidden"
+											name="adminName" value="">
 										<div class="form-label-group">
-											<input type="text" id="inputUserame" class="form-control" name="adminEmail2" placeholder="아이디" required autofocus>
+											<input type="text" id="inputUserame" class="form-control"
+												name="adminEmail2" placeholder="아이디" required autofocus>
 											<label for="inputUserame">@devinforest.com</label>
 											<div>
-												<button id="emailCheckBtn" class="checkBtn btn-success" type="button">중복확인</button>
+												<button id="emailCheckBtn" class="checkBtn btn-success"
+													type="button">중복확인</button>
 												<span id="emailMsg"></span>
 											</div>
 										</div>
 
 										<div class="form-label-group">
-											<input type="text" id="inputEmail" class="form-control" name="adminName2" placeholder="닉네임" required>
-											<label for="inputEmail">닉네임</label>
+											<input type="text" id="inputEmail" class="form-control"
+												name="adminName2" placeholder="닉네임" required> <label
+												for="inputEmail">닉네임</label>
 											<div>
-												<button id="nameCheckBtn" class="checkBtn btn-success" type="button">중복확인</button>
+												<button id="nameCheckBtn" class="checkBtn btn-success"
+													type="button">중복확인</button>
 												<span id="nameMsg"></span>
 											</div>
 										</div>
 										<div class="form-label-group">
-											<input type="password" id="inputPassword" class="form-control" name="adminPw" placeholder="비밀번호" required>
-											<label for="inputPassword">비밀번호</label>
+											<input type="password" id="inputPassword"
+												class="form-control" name="adminPw" placeholder="비밀번호"
+												required> <label for="inputPassword">비밀번호</label>
 										</div>
-										<button id="signUpBtn" class="btn btn-lg btn-success btn-block text-uppercase" type="button">등록하기</button>
+										<button id="signUpBtn"
+											class="btn btn-lg btn-success btn-block text-uppercase"
+											type="button">등록하기</button>
 									</form>
 									<hr>
-									<div class="text-center">
-										아이디는 자동으로 @devinforest.com 이메일 형식으로 생성됩니다.
-									</div>
+									<div class="text-center">아이디는 자동으로 @devinforest.com 이메일
+										형식으로 생성됩니다.</div>
 								</div>
 							</div>
 						</div>

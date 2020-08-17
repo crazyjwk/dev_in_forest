@@ -1,267 +1,299 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport"
-			content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		
-		<title>탈퇴회원 조회</title>
-		
-		<!-- Custom fonts for this template-->
-		<link th:href="@{/vendor/fontawesome-free/css/all.min.css}"
-			rel="stylesheet" type="text/css">
-		<link
-			href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-			rel="stylesheet">
-		
-		<!-- Custom styles for this template-->
-		<link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
-		
-		<!--  addAdmin template -->
-		<link th:href="@{/css/addAdmin.css}" rel="stylesheet">
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	</head>
-	<body id="page-top">
-		<!-- Page Wrapper -->
-		<div id="wrapper">
-		
-			<!-- 사이드 바 -->
-			<div>
-				<div th:include="/include/adminSide::adminSideBar" style="height: 100%"></div>
-			</div>
-			<!-- 사이드바 끝 -->
-			
-			<!-- Content Wrapper -->
-			<div id="content-wrapper" class="d-flex flex-column">
-	
-				<!-- Main Content -->
-				<div id="content">
-	
-					<!-- 상단 바 -->
-					<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-	
-						<!-- Sidebar Toggle (Topbar) -->
-						<button id="sidebarToggleTop"
-							class="btn btn-link d-md-none rounded-circle mr-3">
-							<i class="fa fa-bars"></i>
-						</button>
-	
-						<!-- 상단 검색창 -->
-						<form
-							class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-							<div class="input-group">
-								<input type="text" class="form-control bg-light border-0 small"
-									placeholder="Search for..." aria-label="Search"
-									aria-describedby="basic-addon2">
-								<div class="input-group-append">
-									<button class="btn btn-success" type="button">
-										<i class="fas fa-search fa-sm"></i>
-									</button>
-								</div>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>탈퇴회원 조회</title>
+
+<!-- Custom fonts for this template-->
+<link th:href="@{/vendor/fontawesome-free/css/all.min.css}"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+
+<!--  addAdmin template -->
+<link th:href="@{/css/addAdmin.css}" rel="stylesheet">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body id="page-top">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- 사이드 바 -->
+		<div>
+			<div th:include="/include/adminSide::adminSideBar"
+				style="height: 100%"></div>
+		</div>
+		<!-- 사이드바 끝 -->
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- 상단 바 -->
+				<nav
+					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+					<!-- Sidebar Toggle (Topbar) -->
+					<button id="sidebarToggleTop"
+						class="btn btn-link d-md-none rounded-circle mr-3">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<!-- 상단 검색창 -->
+					<form
+						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+						<div class="input-group">
+							<input type="text" class="form-control bg-light border-0 small"
+								placeholder="Search for..." aria-label="Search"
+								aria-describedby="basic-addon2">
+							<div class="input-group-append">
+								<button class="btn btn-success" type="button">
+									<i class="fas fa-search fa-sm"></i>
+								</button>
 							</div>
-						</form>
-						<!-- 상단 검색창 끝 -->
-	
-						<!-- Topbar Navbar -->
-						<ul class="navbar-nav ml-auto">
-	
-							<!-- Nav Item - Search Dropdown (Visible Only XS) -->
-							<li class="nav-item dropdown no-arrow d-sm-none"><a
-								class="nav-link dropdown-toggle" href="#" id="searchDropdown"
-								role="button" data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
-							</a> <!-- Dropdown - Messages -->
-								<div
-									class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-									aria-labelledby="searchDropdown">
-									<form class="form-inline mr-auto w-100 navbar-search">
-										<div class="input-group">
-											<input type="text"
-												class="form-control bg-light border-0 small"
-												placeholder="Search for..." aria-label="Search"
-												aria-describedby="basic-addon2">
-											<div class="input-group-append">
-												<button class="btn btn-primary" type="button">
-													<i class="fas fa-search fa-sm"></i>
-												</button>
-											</div>
-										</div>
-									</form>
-								</div>
-							</li>
-	
-							<!-- 닉네임 나오는 곳 - 상단 바 -->
-							<li class="nav-item dropdown no-arrow">
-								<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${session.loginAdmin.adminName}"></span>
-									<img class="img-profile rounded-circle" th:src="@{/img/img.png}">
-								</a>
-								<!-- Dropdown - User Information -->
-								<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-									<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-									<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-										로그아웃
-									</a>
-								</div>
-							</li>
-							<!-- 닉네임 나오는 곳 - 상단 바 끝-->
-						</ul>
-					</nav>
-					<!-- 상단 바 끝 -->
-	
-					<!-- 내용 넣는 곳 -->
-					<div class="container-fluid pt-4 px-5 content">
-						<div>
-							<h3 class="text-gray-800 mb-2 font-weight-bold">탈퇴회원 조회</h3>
 						</div>
-						<br>
-						<!-- 테이블 예시 -->
-						<div class="card shadow mb-4">
-							<div class="card-header py-3">
-							  <h5 class="m-0 font-weight-bold" style="color:#148b61;" th:text="'탈퇴 회원 : '+${removeMemberTotalCount}+명"></h5>
-							</div>
-							<div class="card-body">
-								<div class="table text-center">
-									<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-										<div class="row">
-											<div class="col-md-4 text-left">
-												<form method="GET" th:action="@{/admin/getRemoveMemberList}">
-													<input id="search" class="searchText" type="text" name="searchWord" th:value="${searchWord}" placeholder="이메일 검색">
-													<button class="btn searchBtn" type="submit">검색</button>
-													<a class="btn searchBtn" th:href="@{/admin/getRemoveMemberList(rowPerPage='', searchWord='')}">초기화</a>
-												</form>
-											</div>
-											<div class="col-md-2">
-												<button id="recoveryMemberBtn" class="btn selectBtn2"type="button">회원 복구</button>
-												<form id="recoveryMemberForm" method="post" th:action="@{/recoveryMember}">
-													<input id="memberEmail" type="hidden" name="memberEmail" value="">
-												</form>
-											</div>
-											<div class="col-md-6 text-right">
-												<a class="btn btn-sm selectBtn" th:href="@{/admin/getRemoveMemberList(rowPerPage=1, searchWord=${searchWord})}">1개씩</a>
-												<a class="btn btn-sm selectBtn" th:href="@{/admin/getRemoveMemberList(rowPerPage=5, searchWord=${searchWord})}">5개씩</a>
-												<a class="btn btn-sm selectBtn" th:href="@{/admin/getRemoveMemberList(rowPerPage=10, searchWord=${searchWord})}">10개씩</a>
-												<a class="btn btn-sm selectBtn" th:href="@{/admin/getRemoveMemberList(rowPerPage=15, searchWord=${searchWord})}">15개씩</a>
-											</div>
+					</form>
+					<!-- 상단 검색창 끝 -->
+
+					<!-- Topbar Navbar -->
+					<ul class="navbar-nav ml-auto">
+
+						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
+						<li class="nav-item dropdown no-arrow d-sm-none"><a
+							class="nav-link dropdown-toggle" href="#" id="searchDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
+						</a> <!-- Dropdown - Messages -->
+							<div
+								class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+								aria-labelledby="searchDropdown">
+								<form class="form-inline mr-auto w-100 navbar-search">
+									<div class="input-group">
+										<input type="text"
+											class="form-control bg-light border-0 small"
+											placeholder="Search for..." aria-label="Search"
+											aria-describedby="basic-addon2">
+										<div class="input-group-append">
+											<button class="btn btn-primary" type="button">
+												<i class="fas fa-search fa-sm"></i>
+											</button>
 										</div>
 									</div>
-									<table style="margin-top: 10px;" class="table table-bordered">
-										<thead>
-											<tr>
-												<th width="5%">선택</th>
-												<th width="25%" class="darkColor">이메일</th>
-												<th width="20%" class="darkColor">닉네임</th>
-												<th width="10%" class="darkColor">내공</th>
-												<th width="30%" class="darkColor">가입일</th>
-												<th width="10%" class="darkColor">활동상태</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr th:each="removeMember : ${removeMemberList}">
-												<td>
-													<input class="check" type="radio" name="check" th:value="${removeMember.memberEmail}">
-												</td>
-												<td class="darkColor" th:text="${removeMember.memberEmail}"></td>
-												<td class="darkColor" th:text="${removeMember.memberName}"></td>
-												<td class="darkColor" th:text="${removeMember.memberReputation}"></td>
-												<td class="darkColor" th:text="${removeMember.memberDate}"></td>
-												<td class="darkColor" th:text="${removeMember.memberState}"></td>
-											</tr>
-										</tbody>
-									</table>
+								</form>
+							</div></li>
+
+						<!-- 닉네임 나오는 곳 - 상단 바 -->
+						<li class="nav-item dropdown no-arrow"><a
+							class="nav-link dropdown-toggle" href="#" id="userDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"
+								th:text="${session.loginAdmin.adminName}"></span> <img
+								class="img-profile rounded-circle" th:src="@{/img/img.png}">
+						</a> <!-- Dropdown - User Information -->
+							<div
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+								<a class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									로그아웃
+								</a>
+							</div></li>
+						<!-- 닉네임 나오는 곳 - 상단 바 끝-->
+					</ul>
+				</nav>
+				<!-- 상단 바 끝 -->
+
+				<!-- 내용 넣는 곳 -->
+				<div class="container-fluid pt-4 px-5 content">
+					<div>
+						<h3 class="text-gray-800 mb-2 font-weight-bold">탈퇴회원 조회</h3>
+					</div>
+					<br>
+					<!-- 테이블 예시 -->
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h5 class="m-0 font-weight-bold" style="color: #148b61;"
+								th:text="'탈퇴 회원 : '+${removeMemberTotalCount}+명"></h5>
+						</div>
+						<div class="card-body">
+							<div class="table text-center">
+								<div id="dataTable_wrapper"
+									class="dataTables_wrapper dt-bootstrap4">
+									<div class="row">
+										<div class="col-md-4 text-left">
+											<form method="GET" th:action="@{/admin/getRemoveMemberList}">
+												<input id="search" class="searchText" type="text"
+													name="searchWord" th:value="${searchWord}"
+													placeholder="이메일 검색">
+												<button class="btn searchBtn" type="submit">검색</button>
+												<a class="btn searchBtn"
+													th:href="@{/admin/getRemoveMemberList(rowPerPage='', searchWord='')}">초기화</a>
+											</form>
+										</div>
+										<div class="col-md-2">
+											<button id="recoveryMemberBtn" class="btn selectBtn2"
+												type="button">회원 복구</button>
+											<form id="recoveryMemberForm" method="post"
+												th:action="@{/recoveryMember}">
+												<input id="memberEmail" type="hidden" name="memberEmail"
+													value="">
+											</form>
+										</div>
+										<div class="col-md-6 text-right">
+											<a class="btn btn-sm selectBtn"
+												th:href="@{/admin/getRemoveMemberList(rowPerPage=1, searchWord=${searchWord})}">1개씩</a>
+											<a class="btn btn-sm selectBtn"
+												th:href="@{/admin/getRemoveMemberList(rowPerPage=5, searchWord=${searchWord})}">5개씩</a>
+											<a class="btn btn-sm selectBtn"
+												th:href="@{/admin/getRemoveMemberList(rowPerPage=10, searchWord=${searchWord})}">10개씩</a>
+											<a class="btn btn-sm selectBtn"
+												th:href="@{/admin/getRemoveMemberList(rowPerPage=15, searchWord=${searchWord})}">15개씩</a>
+										</div>
+									</div>
 								</div>
-								<div>
-									<a class="btn btn-sm pageBtn" th:href="@{/admin/getRemoveMemberList(currentPage=1,rowPerPage=${rowPerPage},searchWord=${searchWord})}">처음</a>
-									<a class="btn btn-sm pageBtn" th:if="${currentPage == 1}" th:href="@{/admin/getRemoveMemberList(currentPage=1,rowPerPage=${rowPerPage},searchWord=${searchWord})}">이전</a>
-									<a class="btn btn-sm pageBtn" th:if="${currentPage > 1}" th:href="@{/admin/getRemoveMemberList(currentPage=${currentPage-1},rowPerPage=${rowPerPage},searchWord=${searchWord})}">이전</a>
-									<span th:text="'-'+${currentPage}+'-'"></span>
-									<a class="btn btn-sm pageBtn" th:if="${removeMemberTotalCount == 0}" th:href="@{/admin/getRemoveMemberList(currentPage=1,rowPerPage=${rowPerPage},searchWord=${searchWord})}">다음</a>
-									<a class="btn btn-sm pageBtn" th:if="${currentPage < lastPage}" th:href="@{/admin/getRemoveMemberList(currentPage=${currentPage+1},rowPerPage=${rowPerPage},searchWord=${searchWord})}">다음</a>
-									<a class="btn btn-sm pageBtn" th:if="${currentPage == lastPage}" th:href="@{/admin/getRemoveMemberList(currentPage=${lastPage},rowPerPage=${rowPerPage},searchWord=${searchWord})}">다음</a>
-									<a class="btn btn-sm pageBtn" th:if="${removeMemberTotalCount == 0}"th:href="@{/admin/getRemoveMemberList(currentPage=1,rowPerPage=${rowPerPage},searchWord=${searchWord})}">마지막</a>
-									<a class="btn btn-sm pageBtn" th:if="${removeMemberTotalCount != 0}"th:href="@{/admin/getRemoveMemberList(currentPage=${lastPage},rowPerPage=${rowPerPage},searchWord=${searchWord})}">마지막</a>
-								</div>
+								<table style="margin-top: 10px;" class="table table-bordered">
+									<thead>
+										<tr>
+											<th width="5%">선택</th>
+											<th width="25%" class="darkColor">이메일</th>
+											<th width="20%" class="darkColor">닉네임</th>
+											<th width="10%" class="darkColor">내공</th>
+											<th width="30%" class="darkColor">가입일</th>
+											<th width="10%" class="darkColor">활동상태</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="removeMember : ${removeMemberList}">
+											<td><input class="check" type="radio" name="check"
+												th:value="${removeMember.memberEmail}"></td>
+											<td class="darkColor" th:text="${removeMember.memberEmail}"></td>
+											<td class="darkColor" th:text="${removeMember.memberName}"></td>
+											<td class="darkColor"
+												th:text="${removeMember.memberReputation}"></td>
+											<td class="darkColor" th:text="${removeMember.memberDate}"></td>
+											<td class="darkColor" th:text="${removeMember.memberState}"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div>
+								<a class="btn btn-sm pageBtn"
+									th:href="@{/admin/getRemoveMemberList(currentPage=1,rowPerPage=${rowPerPage},searchWord=${searchWord})}">처음</a>
+								<a class="btn btn-sm pageBtn" th:if="${currentPage == 1}"
+									th:href="@{/admin/getRemoveMemberList(currentPage=1,rowPerPage=${rowPerPage},searchWord=${searchWord})}">이전</a>
+								<a class="btn btn-sm pageBtn" th:if="${currentPage > 1}"
+									th:href="@{/admin/getRemoveMemberList(currentPage=${currentPage-1},rowPerPage=${rowPerPage},searchWord=${searchWord})}">이전</a>
+								<span th:text="'-'+${currentPage}+'-'"></span> <a
+									class="btn btn-sm pageBtn"
+									th:if="${removeMemberTotalCount == 0}"
+									th:href="@{/admin/getRemoveMemberList(currentPage=1,rowPerPage=${rowPerPage},searchWord=${searchWord})}">다음</a>
+								<a class="btn btn-sm pageBtn" th:if="${currentPage < lastPage}"
+									th:href="@{/admin/getRemoveMemberList(currentPage=${currentPage+1},rowPerPage=${rowPerPage},searchWord=${searchWord})}">다음</a>
+								<a class="btn btn-sm pageBtn" th:if="${currentPage == lastPage}"
+									th:href="@{/admin/getRemoveMemberList(currentPage=${lastPage},rowPerPage=${rowPerPage},searchWord=${searchWord})}">다음</a>
+								<a class="btn btn-sm pageBtn"
+									th:if="${removeMemberTotalCount == 0}"
+									th:href="@{/admin/getRemoveMemberList(currentPage=1,rowPerPage=${rowPerPage},searchWord=${searchWord})}">마지막</a>
+								<a class="btn btn-sm pageBtn"
+									th:if="${removeMemberTotalCount != 0}"
+									th:href="@{/admin/getRemoveMemberList(currentPage=${lastPage},rowPerPage=${rowPerPage},searchWord=${searchWord})}">마지막</a>
 							</div>
 						</div>
-						
 					</div>
-					<!-- /.container-fluid -->
+
 				</div>
-				<!-- End of Main Content -->
-		
-				<!-- 하단 저작권 -->
-				<footer class="sticky-footer bg-white">
-					<div class="container my-auto">
-						<div class="copyright text-center my-auto">
-							<span>Copyright &copy; Your Website 2020</span>
-						</div>
-					</div>
-				</footer>
-				<!-- 하단 저작권 끝 -->
-		
+				<!-- /.container-fluid -->
 			</div>
-			<!-- End of Content Wrapper -->
-	
-		</div>
-		<!-- End of Page Wrapper -->
-	
-		<!-- Scroll to Top Button-->
-		<a class="scroll-to-top rounded" href="#page-top"> <i
-			class="fas fa-angle-up"></i>
-		</a>
-		<!-- Logout Modal-->
-		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
-						<button class="close" type="button" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
-					</div>
-					<div class="modal-body">정말 로그아웃 하시겠습니까?</div>
-					<div class="modal-footer">
-						<button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-						<a class="btn btn-primary" th:href="@{/logout}">로그아웃</a>
+			<!-- End of Main Content -->
+
+			<!-- 하단 저작권 -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto">
+						<span>Copyright &copy; Your Website 2020</span>
 					</div>
 				</div>
+			</footer>
+			<!-- 하단 저작권 끝 -->
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">정말 로그아웃 하시겠습니까?</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">취소</button>
+					<a class="btn btn-primary" th:href="@{/logout}">로그아웃</a>
+				</div>
 			</div>
 		</div>
-	
-		<!-- Bootstrap core JavaScript-->
-		<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-		<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-	
-		<!-- Core plugin JavaScript-->
-		<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
-	
-		<!-- Custom scripts for all pages-->
-		<script th:src="@{/js/sb-admin-2.min.js}"></script>
-	</body>
-	<script>
-		$('#recoveryMemberBtn').click(function(){
-			console.log('복구버튼 클릭');
-			let checkEmail = null;
-			$('.check:checked').each(function(){
-				checkEmail = $(this).val();
-			});
-			console.log(checkEmail+' <- 선택한 회원 아이디');
-			if(checkEmail==null){
-				alert('선택한 회원이 없습니다.');
-				return;
-			}
-			$('#memberEmail').val(checkEmail)
-			let result = confirm('[ '+checkEmail+' ]'+' 회원을 복구시키겠습니까?');
-			if(!result){
-				console.log("취소");
-				return;
-			}
-			console.log("확인");
-			$('#recoveryMemberForm').submit();
+	</div>
+
+	<!-- Bootstrap core JavaScript-->
+	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script th:src="@{/js/sb-admin-2.min.js}"></script>
+</body>
+<script>
+	$('#recoveryMemberBtn').click(function() {
+		console.log('복구버튼 클릭');
+		let checkEmail = null;
+		$('.check:checked').each(function() {
+			checkEmail = $(this).val();
 		});
-	</script>
+		console.log(checkEmail + ' <- 선택한 회원 아이디');
+		if (checkEmail == null) {
+			alert('선택한 회원이 없습니다.');
+			return;
+		}
+		$('#memberEmail').val(checkEmail)
+		let result = confirm('[ ' + checkEmail + ' ]' + ' 회원을 복구시키겠습니까?');
+		if (!result) {
+			console.log("취소");
+			return;
+		}
+		console.log("확인");
+		$('#recoveryMemberForm').submit();
+	});
+</script>
 </html>

@@ -65,24 +65,26 @@
 						<div class="col-xl-4 col-md-6 mb-4 px-3">
 							<div class="card shadow border-0 p-5">
 								<!-- card Header -->
-								<h4 class="text-dark font-weight-bold mb-4" align="center">Dev
-									In Forest</h4>
+								<h4 class="text-dark font-weight-bold mb-4" align="center">회원가입</h4>
 								<!-- card Content -->
 								<div class="row text-center mb-2">
 									<div class="col-xl-12 mb-3">
 
 										<form id="form" method="post" th:action="@{/addMember}">
-											<input id="memberEmail" type="hidden" name="memberEmail" value=""> 
-											<input id="memberName" type="hidden" name="memberName" value="">
+											<input id="memberEmail" type="hidden" name="memberEmail"
+												value=""> <input id="memberName" type="hidden"
+												name="memberName" value="">
 											<div class="row">
 												<div class="col-sm-7">
-													<span class="memberEmailArea"> 
-													<input id="memberEmail2" class="form-control" type="email" name="memberEmail2" placeholder="이메일 입력해주세요">
+													<span class="memberEmailArea"> <input
+														id="memberEmail2" class="form-control" type="email"
+														name="memberEmail2" placeholder="이메일 입력해주세요">
 													</span>
 												</div>
 												<div class="col-sm-5">
-													<button id="emailCheckBtn" type="button" class="btn btn-success btn-block ">중복확인</button>
-													
+													<button id="emailCheckBtn" type="button"
+														class="btn btn-success btn-block ">중복확인</button>
+
 												</div>
 												<span id="emailMsg"></span>
 											</div>
@@ -93,8 +95,9 @@
 														name="memberName2" placeholder="닉네임을 입력해주세요.">
 												</div>
 												<div class="col-sm-5">
-													<button id="nameCheckBtn" type="button"class=" btn btn-success btn-block">중복확인</button>
-													
+													<button id="nameCheckBtn" type="button"
+														class=" btn btn-success btn-block">중복확인</button>
+
 												</div>
 												<span id="nameMsg"></span>
 											</div>
@@ -102,7 +105,8 @@
 											<div>
 												<div>
 													<input id="memberPw" class="form-control" type="password"
-														name="memberPassword" placeholder="비밀번호  ex)영문,숫자,특수문자 포함하여 8자리 이상.">
+														name="memberPassword"
+														placeholder="비밀번호  ex)영문,숫자,특수문자 포함하여 8자리 이상.">
 												</div>
 											</div>
 											<br>
@@ -114,9 +118,8 @@
 										<br>
 										<div class="col-xl-12 mb-3">
 											<div class="card border-0 bg-light text-center">
-												
-													<a class="nav-link text-info" th:href="@{/index}">인덱스</a>
-												
+												<a class="nav-link text-info" th:href="@{/index}">취소</a>
+
 											</div>
 										</div>
 									</div>

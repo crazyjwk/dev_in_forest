@@ -18,7 +18,7 @@
 		<li class="nav-item active">
 			<a class="nav-link" th:href="@{/adminHome}">
 				<i class="fas fa-fw fa-tachometer-alt"></i>
-				<span>愿�由ъ옄 �솃</span>
+				<span>관리자 홈</span>
 			</a>
 		</li>
 		<!-- 愿�由ъ옄 �솃 �걹 -->
@@ -28,22 +28,22 @@
 		
 		<!-- �쉶�썝愿�由� -�궗�씠�뱶諛� �젣紐� -->
 		<div class="sidebar-heading">
-			�쉶�썝愿�由�
+			회원관리
 		</div>
 		
 		<!-- �쉶�썝愿�由� - �씪諛섑쉶�썝 愿�由� -->
 		<li class="nav-item">
 			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseTwo">
 				<i class="fas fa-fw fa-cog"></i>
-				<span>�씪諛섑쉶�썝 愿�由�</span>
+				<span>일반회원 관리</span>
 			</a>
 			<div id="collapse1" class="collapse" aria-labelledby="headingTwo"
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
-					<h6 class="collapse-header">�씪諛섑쉶�썝 愿�由�</h6>
-					<a class="collapse-item" th:href="@{/admin/getMemberList}">�씪諛섑쉶�썝 議고쉶</a>
-					<a class="collapse-item" th:href="@{/admin/getRemoveMemberList}">�깉�눜�쉶�썝 議고쉶</a>
-					<a class="collapse-item" th:href="@{/admin/getBlackMemberList}">釉붾옓�쉶�썝 議고쉶</a>
+					<h6 class="collapse-header">일반회원 관리</h6>
+					<a class="collapse-item" th:href="@{/admin/getMemberList}">일반회원 조회</a>
+					<a class="collapse-item" th:href="@{/admin/getRemoveMemberList}">탈퇴회원 조회</a>
+					<a class="collapse-item" th:href="@{/admin/getBlackMemberList}">블랙회원 조회</a>
 				</div>
 			</div>
 		</li>
@@ -52,12 +52,12 @@
 		<li class="nav-item">
 			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseUtilities">
 				<i class="fas fa-fw fa-cog"></i>
-				<span>湲곗뾽�쉶�썝 愿�由�</span>
+				<span>기업회원 관리</span>
 			</a>
 			<div id="collapse2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
-					<h6 class="collapse-header">湲곗뾽�쉶�썝 愿�由�</h6>
-					<a class="collapse-item" th:href="@{/admin/getCompanyList}">湲곗뾽�쉶�썝 議고쉶</a>
+					<h6 class="collapse-header">기업회원 관리</h6>
+					<a class="collapse-item" th:href="@{/admin/getCompanyList}">기업회원 조회</a>
 				</div>
 			</div>
 		</li>
@@ -65,7 +65,7 @@
 		<li class="nav-item">
 			<a class="nav-link" th:href="@{/getRestorationList}">
 				<i class="fas fa-fw fa-cog"></i>
-				<span>�쉶�썝 �옱媛��엯 �슂泥�</span>
+				<span>회원 재가입 요청</span>
 			</a>
 		</li>
 		<!-- �쉶�썝愿�由� �걹 -->
@@ -75,23 +75,23 @@
 		
 		<!-- QnA議고쉶 - �궗�씠�뱶諛� �젣紐� -->
 		<div class="sidebar-heading">
-			QnA議고쉶
+			QnA조회
 		</div>
 		
 		<!-- QnA議고쉶 - QnA 愿�由� -->
 		<li class="nav-item">
 			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2-1" aria-expanded="true" aria-controls="collapseTwoAndOne">
 				<i class="fas fa-fw fa-cog"></i>
-				<span>QnA議고쉶</span>
+				<span>QnA조회</span>
 			</a>
 			<div id="collapse2-1" class="collapse" aria-labelledby="headingTwo"
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
-					<h6 class="collapse-header">QnA 愿�由�</h6>
-					<a class="collapse-item" th:href="@{/admin/getQuestionList}">吏덈Ц 議고쉶</a>
-					<a class="collapse-item" th:href="@{/admin/getAnswerList}">�떟蹂� 議고쉶</a>
-					<a class="collapse-item" th:href="@{/admin/getQuestionCommentList}">吏덈Ц�뙎湲� 議고쉶</a>
-					<a class="collapse-item" th:href="@{/admin/getAnswerCommentList}">�떟蹂��뙎湲� 議고쉶</a>
+					<h6 class="collapse-header">QnA 조회</h6>
+					<a class="collapse-item" th:href="@{/admin/getQuestionList}">질문 조회</a>
+					<a class="collapse-item" th:href="@{/admin/getAnswerList}">답변 조회</a>
+					<a class="collapse-item" th:href="@{/admin/getQuestionCommentList}">질문 댓글 조회</a>
+					<a class="collapse-item" th:href="@{/admin/getAnswerCommentList}">답변 댓글 조회</a>
 				</div>
 			</div>
 		</li>
@@ -101,16 +101,16 @@
 		<li class="nav-item">
 			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2-2" aria-expanded="true" aria-controls="collapseTwoAndOne">
 				<i class="fas fa-fw fa-cog"></i>
-				<span>釉붾옓 QnA議고쉶</span>
+				<span>블랙 QnA조회</span>
 			</a>
 			<div id="collapse2-2" class="collapse" aria-labelledby="headingTwo"
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
-					<h6 class="collapse-header">釉붾옓QnA 愿�由�</h6>
-					<a class="collapse-item" th:href="@{/admin/getBlackQuestionList}">釉붾옓吏덈Ц 議고쉶</a>
-					<a class="collapse-item" th:href="@{/admin/getBlackAnswerList}">釉붾옓�떟蹂� 議고쉶</a>
-					<a class="collapse-item" th:href="@{/admin/getBlackQuestionCommentList}">釉붾옓吏덈Ц�뙎湲� 議고쉶</a>
-					<a class="collapse-item" th:href="@{/admin/getBlackAnswerCommentList}">釉붾옓�떟蹂��뙎湲� 議고쉶</a>
+					<h6 class="collapse-header">블랙QnA 관리</h6>
+					<a class="collapse-item" th:href="@{/admin/getBlackQuestionList}">블랙질문 조회</a>
+					<a class="collapse-item" th:href="@{/admin/getBlackAnswerList}">블랙답변 조회</a>
+					<a class="collapse-item" th:href="@{/admin/getBlackQuestionCommentList}">블랙질문댓글 조회</a>
+					<a class="collapse-item" th:href="@{/admin/getBlackAnswerCommentList}">블랙답변댓글 조회</a>
 				</div>
 			</div>
 		</li>
@@ -121,20 +121,20 @@
 		
 		<!-- 怨듭� 諛� 臾몄쓽 - �궗�씠�뱶諛� �젣紐� -->
 		<div class="sidebar-heading">
-			怨듭� 諛� 臾몄쓽
+			공지 및 문의
 		</div>
 		
 		<!-- 怨듭�&FAQ 愿�由� -->
 		<li class="nav-item">
 			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapsePages">
 				<i class="fas fa-fw fa-wrench"></i>
-				<span>怨듭� & FAQ愿�由�</span>
+				<span>공지 & FAQ 관리</span>
 			</a>
 			<div id="collapse3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
-					<h6 class="collapse-header">怨듭� 愿�由�</h6>
-					<a class="collapse-item" th:href="@{/getNoticeList}">怨듭��궗�빆 愿�由� </a>
-					<a class="collapse-item" th:href="@{/getFAQList}">FAQ 愿�由�</a>
+					<h6 class="collapse-header">공지 관리</h6>
+					<a class="collapse-item" th:href="@{/getNoticeList}">공지사항 관리 </a>
+					<a class="collapse-item" th:href="@{/getFAQList}">FAQ 관리</a>
 				</div>
 			</div>
 		</li>
@@ -144,13 +144,13 @@
 		<li class="nav-item">
 			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapsePages">
 				<i class="fas fa-fw fa-wrench"></i>
-				<span>臾몄쓽 & �떊怨좉�由�</span>
+				<span>문의 & 신고관리</span>
 			</a>
 			<div id="collapse4" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
-					<h6 class="collapse-header">臾몄쓽 愿�由�</h6>
-					<a class="collapse-item" th:href="@{/getInquiryList}">臾몄쓽 愿�由� </a>
-					<a class="collapse-item" th:href="@{/getReportList}">�떊怨� 愿�由�</a>
+					<h6 class="collapse-header">문의 관리</h6>
+					<a class="collapse-item" th:href="@{/getInquiryList}">문의 관리</a>
+					<a class="collapse-item" th:href="@{/getReportList}">신고 관리</a>
 				</div>
 			</div>
 		</li>
@@ -161,21 +161,21 @@
 		
 		<!-- �넻怨� �솗�씤 - �궗�씠�뱶諛� �젣紐� -->
 		<div class="sidebar-heading">
-			�넻怨� �솗�씤
+			통계 확인
 		</div>
 		
 		<!-- �넻怨� -->
 		<li class="nav-item">
 			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapsePages">
 			<i class="fas fa-fw fa-chart-area"></i>
-				<span>�넻怨�</span>
+				<span>통계</span>
 			</a>
 			<div id="collapse5" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
-					<h6 class="collapse-header">�넻怨� �솗�씤</h6>
-					<a class="collapse-item" href="#">吏덈Ц �넻怨� </a>
-					<a class="collapse-item" href="#">�떟蹂� �넻怨�</a>
-					<a class="collapse-item" href="#">�쉶�썝媛��엯 �넻怨�</a>
+					<h6 class="collapse-header">통계 확인</h6>
+					<a class="collapse-item" href="#">질문 통계</a>
+					<a class="collapse-item" href="#">답변 통계</a>
+					<a class="collapse-item" href="#">회원가입 통계</a>
 				</div>
 			</div>
 		</li>
@@ -186,20 +186,20 @@
 		
 		<!-- 愿�由ъ옄 �꽕�젙 - �궗�씠�뱶諛� �젣紐� -->
 		<div class="sidebar-heading">
-			愿�由ъ옄 �꽕�젙
+			관리자 설정
 		</div>
 		
 		<!-- 愿�由ъ옄 �꽕�젙 -->
 		<li class="nav-item">
 			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapsePages">
 				<i class="fas fa-fw fa-tachometer-alt"></i>
-				<span>愿�由ъ옄 �꽕�젙</span>
+				<span>관리자 설정</span>
 			</a>
 			<div id="collapse6" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
-					<h6 class="collapse-header">愿�由ъ옄 �꽕�젙</h6>
-					<a class="collapse-item" th:href="@{/getAdminList}">愿�由ъ옄 議고쉶 </a>
-					<a class="collapse-item" th:href="@{/addAdmin}">愿�由ъ옄 �벑濡�</a>
+					<h6 class="collapse-header">관리자 설정</h6>
+					<a class="collapse-item" th:href="@{/getAdminList}">관리자 조회</a>
+					<a class="collapse-item" th:href="@{/addAdmin}">관리자 등록</a>
 				</div>
 			</div>
 		</li>
@@ -207,11 +207,6 @@
 		
 		<!-- 留덉�留� 援щ텇 以� -->
 		<hr class="sidebar-divider d-none d-md-block">
-		
-		<!-- < 踰꾪듉 -->
-		<div class="text-center d-none d-md-inline">
-			<button class="rounded-circle border-0" id="sidebarToggle"></button>
-		</div>
 	
 	</ul>
 	<!-- �궗�씠�뱶諛� �걹 -->

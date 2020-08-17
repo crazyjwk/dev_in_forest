@@ -1,115 +1,128 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		
-		<title>블랙회원으로 변경중..</title>
-		
-		<!-- Custom fonts for this template-->
-		<link href="/vendor/fontawesome-free/css/all.min.css"
-			rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-		
-		<!-- Custom styles for this template-->
-		<link href="/css/sb-admin-2.min.css" rel="stylesheet">
-		
-		<!--  addAdmin template -->
-		<link href="/css/addAdmin.css" rel="stylesheet">
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<style>
-			th{
-				text-align: center;
-				color:white;
-				background: #148b61;
-			}
-			textarea{
-				width: 100%;
-				height: 250px;
-				padding:10px;
-				border: 1px solid #e3e6f0;
-			}
-			button{
-				width: 100%;
-			}
-		</style>
-	</head>
-	<body id="page-top">
-		<!-- Page Wrapper -->
-		<div id="wrapper">
-			
-			<!-- Content Wrapper -->
-			<div id="content-wrapper" class="d-flex flex-column">
-	
-				<!-- Main Content -->
-				<div id="content">
-	
-					<!-- 상단 바 -->
-					<div class="bg-success">
-							<div style="padding-top:15px; padding-bottom: 10px;">
-								<h3 class="text-center" style="color:white;">Dev In Forest</h3>
-							</div>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>블랙회원으로 변경중..</title>
+
+<!-- Custom fonts for this template-->
+<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="/css/sb-admin-2.min.css" rel="stylesheet">
+
+<!--  addAdmin template -->
+<link href="/css/addAdmin.css" rel="stylesheet">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+th {
+	text-align: center;
+	color: white;
+	background: #148b61;
+}
+
+textarea {
+	width: 100%;
+	height: 250px;
+	padding: 10px;
+	border: 1px solid #e3e6f0;
+}
+
+button {
+	width: 100%;
+}
+</style>
+</head>
+<body id="page-top">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- 상단 바 -->
+				<div class="bg-success">
+					<div style="padding-top: 15px; padding-bottom: 10px;">
+						<h3 class="text-center" style="color: white;">Dev In Forest</h3>
 					</div>
-					<!-- 상단 바 끝 -->
-	
-					<!-- 내용 넣는 곳 -->
-					<div class="container-fluid pt-4 px-5 content">
-						<input id="check" type="hidden" th:value="${check}">
-						<table class="table">
-							<tr>
-								<th>블랙회원 이메일</th>
-								<td class="text-center darkColor" th:text="${memberEmail}"></td>
-							</tr>
-							<tr>
-								<th>블랙회원 닉네임</th>
-								<td class="text-center darkColor" th:text="${report.reportMemberName}"></td>
-							</tr>
-						</table>
-						<form id="form" method="post" th:action="@{/blackMember}">
-							<div>
-								<input type="hidden" name="reportNo" th:value="${report.reportNo}">
-								<input type="hidden" name="memberEmail" th:value="${memberEmail}">
-								<input id="reportMemberName" type="hidden" name="memberName" th:value="${report.reportMemberName}">
-								<input type="hidden" name="questionNo" th:value="${report.questionNo}">
-								<input type="hidden" name="questionCommentNo" th:value="${report.questionCommentNo}">
-								<input type="hidden" name="answerNo" th:value="${report.answerNo}">
-								<input type="hidden" name="answerCommentNo" th:value="${report.answerCommentNo}">
-								<textarea id="blackListReason" rows="5" cols="20" name="blackListReason" placeholder="블랙사유를 입력해주세요."></textarea>
-							</div>
-						</form>
-						<div style="margin-top: 10px; padding-bottom: 20px;">
-							<button id="btn" class="btn pageBtn" type="button">블랙회원 전환</button>
-							<div style="margin:20px;"class="text-center">
-								<strong id="msg">&nbsp;</strong>
-							</div>
+				</div>
+				<!-- 상단 바 끝 -->
+
+				<!-- 내용 넣는 곳 -->
+				<div class="container-fluid pt-4 px-5 content">
+					<input id="check" type="hidden" th:value="${check}">
+					<table class="table">
+						<tr>
+							<th>블랙회원 이메일</th>
+							<td class="text-center darkColor" th:text="${memberEmail}"></td>
+						</tr>
+						<tr>
+							<th>블랙회원 닉네임</th>
+							<td class="text-center darkColor"
+								th:text="${report.reportMemberName}"></td>
+						</tr>
+					</table>
+					<form id="form" method="post" th:action="@{/blackMember}">
+						<div>
+							<input type="hidden" name="reportNo"
+								th:value="${report.reportNo}"> <input type="hidden"
+								name="memberEmail" th:value="${memberEmail}"> <input
+								id="reportMemberName" type="hidden" name="memberName"
+								th:value="${report.reportMemberName}"> <input
+								type="hidden" name="questionNo" th:value="${report.questionNo}">
+							<input type="hidden" name="questionCommentNo"
+								th:value="${report.questionCommentNo}"> <input
+								type="hidden" name="answerNo" th:value="${report.answerNo}">
+							<input type="hidden" name="answerCommentNo"
+								th:value="${report.answerCommentNo}">
+							<textarea id="blackListReason" rows="5" cols="20"
+								name="blackListReason" placeholder="블랙사유를 입력해주세요."></textarea>
+						</div>
+					</form>
+					<div style="margin-top: 10px; padding-bottom: 20px;">
+						<button id="btn" class="btn pageBtn" type="button">블랙회원
+							전환</button>
+						<div style="margin: 20px;" class="text-center">
+							<strong id="msg">&nbsp;</strong>
 						</div>
 					</div>
-					<!-- End of container-fluid -->
 				</div>
-				<!-- End of Main Content -->
-		
+				<!-- End of container-fluid -->
 			</div>
-			<!-- End of Content Wrapper -->
-	
+			<!-- End of Main Content -->
+
 		</div>
-		<!-- End of Page Wrapper -->
-	
-		<!-- Bootstrap core JavaScript-->
-		<script src="/vendor/jquery/jquery.min.js"></script>
-		<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	
-		<!-- Core plugin JavaScript-->
-		<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
-	
-		<!-- Custom scripts for all pages-->
-		<script src="/js/sb-admin-2.min.js"></script>
-		
-		<!-- Javascript Code -->
-		<script>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="/js/sb-admin-2.min.js"></script>
+
+	<!-- Javascript Code -->
+	<script>
 		
 			/* if($('#check').val()!=''){
 				alert('블랙완료');
@@ -134,5 +147,5 @@
 				}
 			});
 		</script>
-	</body>
+</body>
 </html>

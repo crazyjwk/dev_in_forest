@@ -1,53 +1,60 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		
-		<title>타이틀 제목</title>
-		
-		<!-- Custom fonts for this template-->
-		<link th:href="@{/vendor/fontawesome-free/css/all.min.css}"
-			rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-		
-		<!-- Custom styles for this template-->
-		<link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
-		
-		<!--  addAdmin template -->
-		<link th:href="@{/css/addAdmin.css}" rel="stylesheet">
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<link
-		    rel="stylesheet"
-		    href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css"
-	 	/>
-	 	<link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
-	 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" />
-		<script src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
-		<style>
-		#hashtagName{
-		width:150px;
-		}
-		.tagBtn{
-			background-color: #e1ecf4;
-			color: #648ba7;
-			border-color: transparent;
-			padding:0;
-			width: 50px; 
-			height: 25px;
-			border: 0;
-			}
-			.tagBtn:hover{
-			background-color: #96bfe4;
-			color: #3b7aa0;
-			border-color: transparent;
-			}
-		</style>
-		<script>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>타이틀 제목</title>
+
+<!-- Custom fonts for this template-->
+<link th:href="@{/vendor/fontawesome-free/css/all.min.css}"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+
+<!--  addAdmin template -->
+<link th:href="@{/css/addAdmin.css}" rel="stylesheet">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css" />
+<link rel="stylesheet"
+	href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" />
+<script
+	src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
+<style>
+#hashtagName {
+	width: 150px;
+}
+
+.tagBtn {
+	background-color: #e1ecf4;
+	color: #648ba7;
+	border-color: transparent;
+	padding: 0;
+	width: 50px;
+	height: 25px;
+	border: 0;
+}
+
+.tagBtn:hover {
+	background-color: #96bfe4;
+	color: #3b7aa0;
+	border-color: transparent;
+}
+</style>
+<script>
 			$(document).ready(function(){
 				let memberName = $('#memberName').val();
 				let questionIp = $('#questionIp').val();
@@ -230,15 +237,17 @@
 			});
 			
 		</script>
-	</head>
-	<body id="page-top">
-		<!-- 마크다운 에디터 CDN -->
-		<script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
-		<script src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
-	
-		<!-- Page Wrapper -->
-		<div id="wrapper">
-		
+</head>
+<body id="page-top">
+	<!-- 마크다운 에디터 CDN -->
+	<script
+		src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+	<script
+		src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
 		<!-- 사이드바 -->
 		<ul
 			class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion"
@@ -269,23 +278,23 @@
 			<div th:if="${memberName} != 'Guest'" class="sidebar-heading">회원</div>
 
 			<!-- Nav Item - 일반회원 관리 -->
-			<li th:if="${memberName} != 'Guest'" class="nav-item">
-				<a class="nav-link collapsed" href="#"
-				data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
+			<li th:if="${memberName} != 'Guest'" class="nav-item"><a
+				class="nav-link collapsed" href="#" data-toggle="collapse"
+				data-target="#collapse1" aria-expanded="true"
 				aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>일반회원</span>
-				</a>
+			</a>
 				<div id="collapse1" class="collapse" aria-labelledby="headingTwo"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">일반회원</h6>
-						<a class="collapse-item" th:href="@{/getMemberInfo(memberEmail=${session.loginMember.memberEmail})}">회원정보</a>
+						<a class="collapse-item"
+							th:href="@{/getMemberInfo(memberEmail=${session.loginMember.memberEmail})}">회원정보</a>
 						<a class="collapse-item" th:href="@{/getMemberList}">회원리스트</a> <a
 							class="collapse-item" href="#">채용 리스트</a> <a
 							class="collapse-item" href="#">면접제의 리스트</a> <a
 							class="collapse-item" href="#">문의&신고</a>
 					</div>
-				</div>
-			</li>
+				</div></li>
 
 
 			<!-- Divider -->
@@ -315,223 +324,231 @@
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Q&A</h6>
-						<a class="collapse-item" th:href="@{/getQuestionList}">질문리스트</a>
-						<a th:if="${memberName} != 'Guest'" class="collapse-item" th:href="@{/addQuestion(memberName=${session.loginMember.memberName})}">질문하기</a>
+						<a class="collapse-item" th:href="@{/getQuestionList}">질문리스트</a> <a
+							th:if="${memberName} != 'Guest'" class="collapse-item"
+							th:href="@{/addQuestion(memberName=${session.loginMember.memberName})}">질문하기</a>
 					</div>
 				</div></li>
-				<!-- 구분 줄 -->
-				<hr class="sidebar-divider">
-	
-				<!-- 기업확인 - 사이드바 제목 -->
-				<div class="sidebar-heading">기업</div>
-	
-				<!-- 기업 -->
-				<li class="nav-item"><a class="nav-link collapsed" href="#"
-					data-toggle="collapse" data-target="#collapse5" aria-expanded="true"
-					aria-controls="collapsePages"> <i
-						class="fas fa-fw fa-chart-area"></i> <span>기업</span>
-				</a>
-					<div id="collapse5" class="collapse" aria-labelledby="headingPages"
-						data-parent="#accordionSidebar">
-						<div class="bg-white py-2 collapse-inner rounded">
-							<h6 class="collapse-header">기업</h6>
-							<a class="collapse-item" th:href="@{/getCompanyList}">기업정보리스트</a>
-							<a class="collapse-item" href="#">기업의 면접제의 리스트 </a> <a
-								class="collapse-item" href="#">기업의 채용리스트</a>
-						</div>
-					</div></li>
-				<!-- 기업 끝 -->
-	
-				<!-- Divider -->
-				<hr class="sidebar-divider d-none d-md-block">
-	
-				<!-- Sidebar Toggler (Sidebar) -->
-				<div class="text-center d-none d-md-inline">
-					<button class="rounded-circle border-0" id="sidebarToggle"></button>
-				</div>
-	
-			</ul>
-			<!-- 사이드바 끝 -->
-			
-			<!-- Content Wrapper -->
-			<div id="content-wrapper" class="d-flex flex-column">
-	
-				<!-- Main Content -->
-				<div id="content">
-	
-					<!-- 상단 바 -->
-					<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-	
-						<!-- Sidebar Toggle (Topbar) -->
-						<button id="sidebarToggleTop"
-							class="btn btn-link d-md-none rounded-circle mr-3">
-							<i class="fa fa-bars"></i>
-						</button>
-	
-						<!-- 상단 검색창 -->
-						<form
-							class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-							<div class="input-group">
-								<input type="text" class="form-control bg-light border-0 small"
-									placeholder="Search for..." aria-label="Search"
-									aria-describedby="basic-addon2">
-								<div class="input-group-append">
-									<button class="btn btn-success" type="button">
-										<i class="fas fa-search fa-sm"></i>
-									</button>
-								</div>
+			<!-- 구분 줄 -->
+			<hr class="sidebar-divider">
+
+			<!-- 기업확인 - 사이드바 제목 -->
+			<div class="sidebar-heading">기업</div>
+
+			<!-- 기업 -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapse5" aria-expanded="true"
+				aria-controls="collapsePages"> <i
+					class="fas fa-fw fa-chart-area"></i> <span>기업</span>
+			</a>
+				<div id="collapse5" class="collapse" aria-labelledby="headingPages"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">기업</h6>
+						<a class="collapse-item" th:href="@{/getCompanyList}">기업정보리스트</a>
+						<a class="collapse-item" href="#">기업의 면접제의 리스트 </a> <a
+							class="collapse-item" href="#">기업의 채용리스트</a>
+					</div>
+				</div></li>
+			<!-- 기업 끝 -->
+
+			<!-- Divider -->
+			<hr class="sidebar-divider d-none d-md-block">
+		</ul>
+		<!-- 사이드바 끝 -->
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- 상단 바 -->
+				<nav
+					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+					<!-- Sidebar Toggle (Topbar) -->
+					<button id="sidebarToggleTop"
+						class="btn btn-link d-md-none rounded-circle mr-3">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<!-- 상단 검색창 -->
+					<form
+						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+						<div class="input-group">
+							<input type="text" class="form-control bg-light border-0 small"
+								placeholder="Search for..." aria-label="Search"
+								aria-describedby="basic-addon2">
+							<div class="input-group-append">
+								<button class="btn btn-success" type="button">
+									<i class="fas fa-search fa-sm"></i>
+								</button>
 							</div>
-						</form>
-						<!-- 상단 검색창 끝 -->
-	
-						<!-- Topbar Navbar -->
-						<ul class="navbar-nav ml-auto">
-	
-							<!-- Nav Item - Search Dropdown (Visible Only XS) -->
-							<li class="nav-item dropdown no-arrow d-sm-none"><a
-								class="nav-link dropdown-toggle" href="#" id="searchDropdown"
-								role="button" data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
-							</a> <!-- Dropdown - Messages -->
-								<div
-									class="dropdown -menu dropdown-menu-right p-3 shadow animated--grow-in"
-									aria-labelledby="searchDropdown">
-									<form class="form-inline mr-auto w-100 navbar-search">
-										<div class="input-group">
-											<input type="text"
-												class="form-control bg-light border-0 small"
-												placeholder="Search for..." aria-label="Search"
-												aria-describedby="basic-addon2">
-											<div class="input-group-append">
-												<button class="btn btn-primary" type="button">
-													<i class="fas fa-search fa-sm"></i>
-												</button>
-											</div>
+						</div>
+					</form>
+					<!-- 상단 검색창 끝 -->
+
+					<!-- Topbar Navbar -->
+					<ul class="navbar-nav ml-auto">
+
+						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
+						<li class="nav-item dropdown no-arrow d-sm-none"><a
+							class="nav-link dropdown-toggle" href="#" id="searchDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
+						</a> <!-- Dropdown - Messages -->
+							<div
+								class="dropdown -menu dropdown-menu-right p-3 shadow animated--grow-in"
+								aria-labelledby="searchDropdown">
+								<form class="form-inline mr-auto w-100 navbar-search">
+									<div class="input-group">
+										<input type="text"
+											class="form-control bg-light border-0 small"
+											placeholder="Search for..." aria-label="Search"
+											aria-describedby="basic-addon2">
+										<div class="input-group-append">
+											<button class="btn btn-primary" type="button">
+												<i class="fas fa-search fa-sm"></i>
+											</button>
 										</div>
-									</form>
-								</div>
-							</li>
-	
-							<!-- 닉네임 나오는 곳 - 상단 바 -->
-							<li class="nav-item dropdown no-arrow">
-								<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${memberName}"></span>
-									<img class="img-profile rounded-circle" th:src="@{/img/img.png}">
+									</div>
+								</form>
+							</div></li>
+
+						<!-- 닉네임 나오는 곳 - 상단 바 -->
+						<li class="nav-item dropdown no-arrow"><a
+							class="nav-link dropdown-toggle" href="#" id="userDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"
+								th:text="${memberName}"></span> <img
+								class="img-profile rounded-circle" th:src="@{/img/img.png}">
+						</a> <!-- Dropdown - User Information -->
+							<div th:if="${memberName} != 'Guest'"
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+								<a class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									로그아웃
 								</a>
-								<!-- Dropdown - User Information -->
-								<div th:if="${memberName} != 'Guest'" class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-									<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-									<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-										로그아웃
-									</a>
-								</div>
-								<div th:unless="${memberName} != 'Guest'" class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-									<a class="dropdown-item" href="#" th:href="@{/memberLogin}" th:text="로그인">
-									<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									</a>
-								</div>
-							</li>
-							<!-- 닉네임 나오는 곳 - 상단 바 끝-->
-						</ul>
-					</nav>
-					<!-- 상단 바 끝 -->
-	
-					<!-- 내용 넣는 곳 -->
-					<div class="container pt-4 px-5 content">
-						<!-- 여기에 본문 넣으면댐 -->
-						<h1>질문 작성</h1>
-						<br>
-							<div>
-								질문 제목
-								<br>
-								<input class="form-control" type="text" name="questionTitle" id="questionTitle">
 							</div>
-							<br>
-							<div>
-								질문 내용
-								<div id="editor"></div>
+							<div th:unless="${memberName} != 'Guest'"
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+								<a class="dropdown-item" href="#" th:href="@{/memberLogin}"
+									th:text="로그인"> <i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+								</a>
+							</div></li>
+						<!-- 닉네임 나오는 곳 - 상단 바 끝-->
+					</ul>
+				</nav>
+				<!-- 상단 바 끝 -->
+
+				<!-- 내용 넣는 곳 -->
+				<div class="container pt-4 px-5 content">
+					<!-- 여기에 본문 넣으면댐 -->
+					<h1>질문 작성</h1>
+					<br>
+					<div>
+						질문 제목 <br> <input class="form-control" type="text"
+							name="questionTitle" id="questionTitle">
+					</div>
+					<br>
+					<div>
+						질문 내용
+						<div id="editor"></div>
+					</div>
+					<br>
+					<div>
+						내공 <br> <input type="number" name="memberReputation"
+							id="memberReputation" th:value=0>
+						<div id="reputationWarning"></div>
+					</div>
+					<br>
+					<div id="hashtagSelect">
+						해시태그 <select class="form-control" id="hashtagName"
+							name="hashtagName">
+							<option value="">해시태그 선택</option>
+							<option th:each="hl : ${hashtagList}" th:text="${hl.hashtagName}"
+								th:value="${hl.hashtagName}"></option>
+						</select>
+					</div>
+					<br>
+					<div>
+						<a href="#" id="selectHashtag1" title="selectHashtag1"
+							data-toggle="selectHashtag1" data-trigger="hover"
+							data-content="content"></a> <span id="selectHashtag2"></span> <span
+							id="selectHashtag3"></span> <span id="selectHashtag4"></span> <span
+							id="selectHashtag5"></span>
+					</div>
+					<br>
+					<div>
+						<span><button id="plusTagBtn"
+								class="btn btn-primary btn-sm">추가</button></span> <span><button
+								id="minusTagBtn" class="btn btn-danger btn-sm">삭제</button></span>
+					</div>
+
+					<br>
+					<!--  <input class="form-control" type="text" name="hashtagName" id="hashtagName"> -->
+
+					<div style="text-align: center">
+						<button class="btn btn-outline-success" type="button"
+							id="addQuestionBtn">작성</button>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+							th:href="@{/getQuestionList}"><button
+								class="btn btn-outline-secondary" type="button">취소</button></a>
+					</div>
+					<div>
+						<input type="hidden" name="questionIp" id="questionIp"
+							th:value="${ip}">
+					</div>
+					<div>
+						<input type="hidden" name="memberName" id="memberName"
+							th:value="${memberName}">
+					</div>
+					<!-- End of Content Wrapper -->
+
+				</div>
+
+				<!-- End of Page Wrapper -->
+
+				<!-- Scroll to Top Button-->
+				<a class="scroll-to-top rounded" href="#page-top"> <i
+					class="fas fa-angle-up"></i>
+				</a>
+				<!-- Logout Modal-->
+				<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
+								<button class="close" type="button" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
 							</div>
-							<br>
-							<div>
-								내공
-								<br>
-								<input type="number" name="memberReputation" id="memberReputation" th:value=0>
-								<div id="reputationWarning"></div>
+							<div class="modal-body">정말 로그아웃 하시겠습니까?</div>
+							<div class="modal-footer">
+								<button class="btn btn-secondary" type="button"
+									data-dismiss="modal">취소</button>
+								<a class="btn btn-primary" th:href="@{/logout}">로그아웃</a>
 							</div>
-							<br>
-							<div id="hashtagSelect">
-								해시태그
-								<select class="form-control" id="hashtagName" name="hashtagName">
-									<option value="">해시태그 선택</option>
-									<option th:each="hl : ${hashtagList}" th:text="${hl.hashtagName}" th:value="${hl.hashtagName}"></option>
-								</select>
-							</div>
-							<br>
-							<div>
-							<a href="#" id="selectHashtag1" title="selectHashtag1" data-toggle="selectHashtag1" data-trigger="hover" data-content="content"></a>
-								
-								<span id="selectHashtag2"></span>
-								<span id="selectHashtag3"></span>
-								<span id="selectHashtag4"></span>
-								<span id="selectHashtag5"></span>
-							</div>
-							<br>
-							<div>
-								<span><button id="plusTagBtn" class="btn btn-primary btn-sm">추가</button></span>
-								<span><button id="minusTagBtn" class="btn btn-danger btn-sm">삭제</button></span>
-							</div>
-							
-								<br>
-								<!--  <input class="form-control" type="text" name="hashtagName" id="hashtagName"> -->
-							
-						<div style="text-align:center">
-							<button class="btn btn-outline-success" type="button" id="addQuestionBtn">작성</button>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;					
-							<a th:href="@{/getQuestionList}"><button class="btn btn-outline-secondary" type="button">취소</button></a>							
 						</div>
-						<div>
-					       <input type="hidden" name="questionIp" id="questionIp" th:value="${ip}">
-					    </div>
-					    <div>
-					       <input type="hidden" name="memberName" id="memberName" th:value="${memberName}">
-					    </div>
-			<!-- End of Content Wrapper -->
-	
-					</div>
-		
-		<!-- End of Page Wrapper -->
-	
-		<!-- Scroll to Top Button-->
-		<a class="scroll-to-top rounded" href="#page-top"> <i
-			class="fas fa-angle-up"></i>
-		</a>
-		<!-- Logout Modal-->
-		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
-						<button class="close" type="button" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
-					</div>
-					<div class="modal-body">정말 로그아웃 하시겠습니까?</div>
-					<div class="modal-footer">
-						<button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-						<a class="btn btn-primary" th:href="@{/logout}">로그아웃</a>
 					</div>
 				</div>
-			</div>
-		</div>
-	
-		<!-- Bootstrap core JavaScript-->
-		<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-		<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-	
-		<!-- Core plugin JavaScript-->
-		<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
-	
-		<!-- Custom scripts for all pages-->
-		<script th:src="@{/js/sb-admin-2.min.js}"></script>
-	</body>
+
+				<!-- Bootstrap core JavaScript-->
+				<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+				<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+				<!-- Core plugin JavaScript-->
+				<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+				<!-- Custom scripts for all pages-->
+				<script th:src="@{/js/sb-admin-2.min.js}"></script>
+</body>
 </html>

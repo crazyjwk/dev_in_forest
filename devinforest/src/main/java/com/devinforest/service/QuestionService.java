@@ -1,6 +1,5 @@
 package com.devinforest.service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,8 +21,10 @@ public class QuestionService {
 	
 	@Autowired
 	private QuestionMapper questionMapper;
+	
 	@Autowired
 	private HashtagMapper hashtagMapper;
+	
 	@Autowired
 	private AnswerMapper answerMapper;
 	

@@ -51,259 +51,245 @@
 
 		<!-- 사이드바 -->
 		<ul
-         class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion"
-         id="accordionSidebar">
+			class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion"
+			id="accordionSidebar">
 
-         <!-- dev in forest : 사이드바 최상단 문구-->
-         <a
-            class="sidebar-brand d-flex align-items-center justify-content-center"
-            th:href="@{/companyHome}">
-            <div class="sidebar-brand-icon rotate-n-15">
-               <i class="fas fa-tree"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">Dev In Forest</div>
-         </a>
+			<!-- dev in forest : 사이드바 최상단 문구-->
+			<a
+				class="sidebar-brand d-flex align-items-center justify-content-center"
+				th:href="@{/companyHome}">
+				<div class="sidebar-brand-icon rotate-n-15">
+					<i class="fas fa-tree"></i>
+				</div>
+				<div class="sidebar-brand-text mx-3">Dev In Forest</div>
+			</a>
 
-         <!-- 구분 줄 -->
-         <hr class="sidebar-divider my-0">
+			<!-- 구분 줄 -->
+			<hr class="sidebar-divider my-0">
 
-         <!-- 관리자 홈 -->
-         <li class="nav-item active"><a class="nav-link"
-            th:href="@{/companyHome}"> <i class="fas fa-fw fa-tachometer-alt"></i>
-               <span>기업 홈</span>
-         </a></li>
-         <!-- 관리자 홈 끝 -->
+			<!-- 관리자 홈 -->
+			<li class="nav-item active"><a class="nav-link"
+				th:href="@{/companyHome}"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>기업 홈</span>
+			</a></li>
+			<!-- 관리자 홈 끝 -->
 
-         <!-- 구분 줄 -->
-         <hr class="sidebar-divider">
+			<!-- 구분 줄 -->
+			<hr class="sidebar-divider">
 
-         <!-- 회원관리 -사이드바 제목 -->
-         <div class="sidebar-heading">기업</div>
+			<!-- 회원관리 -사이드바 제목 -->
+			<div class="sidebar-heading">기업</div>
 
-         <!-- 회원관리 - 일반회원 관리 -->
-         <li class="nav-item"><a class="nav-link collapsed" href="#"
-            data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
-            aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>기업회원</span>
-         </a>
-            <div id="collapse1" class="collapse" aria-labelledby="headingTwo"
-               data-parent="#accordionSidebar">
-               <div class="bg-white py-2 collapse-inner rounded">
-                  <h6 class="collapse-header">기업회원</h6>
-                  <a class="collapse-item" th:href="@{/getCompanyInfo(companyEmail=${session.loginCompany.companyEmail})}">기업정보</a> 
-                  <a class="collapse-item" th:href="@{/getMemberListForCompany}">일반 회원목록</a> 
-               </div>
-            </div></li>
+			<!-- 회원관리 - 일반회원 관리 -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
+				aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>기업회원</span>
+			</a>
+				<div id="collapse1" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">기업회원</h6>
+						<a class="collapse-item"
+							th:href="@{/getCompanyInfo(companyEmail=${session.loginCompany.companyEmail})}">기업정보</a>
+						<a class="collapse-item" th:href="@{/getMemberListForCompany}">일반
+							회원목록</a>
+					</div>
+				</div></li>
 
-         <!-- 구분 줄 -->
-         <hr class="sidebar-divider">
+			<!-- 구분 줄 -->
+			<hr class="sidebar-divider">
 
-         <!-- 공지 및 문의 - 사이드바 제목 -->
-         <div class="sidebar-heading">Q&A</div>
+			<!-- 공지 및 문의 - 사이드바 제목 -->
+			<div class="sidebar-heading">Q&A</div>
 
-         <!-- 공지&FAQ 관리 -->
-         <li class="nav-item"><a class="nav-link collapsed" href="#"
-            data-toggle="collapse" data-target="#collapse3" aria-expanded="true"
-            aria-controls="collapsePages"> <i class="fas fa-fw fa-folder"></i>
-               <span>Q&A</span>
-         </a>
-            <div id="collapse3" class="collapse" aria-labelledby="headingPages"
-               data-parent="#accordionSidebar">
-               <div class="bg-white py-2 collapse-inner rounded">
-                  <h6 class="collapse-header"> Q&A</h6>
-                  <a class="collapse-item" th:href="@{/getQuestionList}">질문목록 </a>
-               </div>
-            </div></li>
-         <!-- 공지&FAQ 관리 끝 -->
-         <hr class="sidebar-divider">
-      <div class="sidebar-heading">채용공고</div>
-         <!-- 문의&신고 관리 -->
-         <li class="nav-item"><a class="nav-link collapsed" href="#"
-            data-toggle="collapse" data-target="#collapse4" aria-expanded="true"
-            aria-controls="collapsePages"> <i class="fas fa-fw fa-folder"></i>
-               <span>채용공고</span>
-         </a>
-            <div id="collapse4" class="collapse" aria-labelledby="headingPages"
-               data-parent="#accordionSidebar">
-               <div class="bg-white py-2 collapse-inner rounded">
-                  <h6 class="collapse-header">채용공고</h6>
-                  <a class="collapse-item" th:href="@{/getRecruitListByCompany(searchWord=${session.loginCompany.companyKorName})}">채용공고 리스트 </a> 
-               </div>
-            </div></li>
-         <!-- 문의&신고 관리 끝 -->
+			<!-- 공지&FAQ 관리 -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapse3" aria-expanded="true"
+				aria-controls="collapsePages"> <i class="fas fa-fw fa-folder"></i>
+					<span>Q&A</span>
+			</a>
+				<div id="collapse3" class="collapse" aria-labelledby="headingPages"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">Q&A</h6>
+						<a class="collapse-item" th:href="@{/getQuestionList}">질문목록 </a>
+					</div>
+				</div></li>
+			<!-- 공지&FAQ 관리 끝 -->
+			<hr class="sidebar-divider">
+			<div class="sidebar-heading">채용공고</div>
+			<!-- 문의&신고 관리 -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapse4" aria-expanded="true"
+				aria-controls="collapsePages"> <i class="fas fa-fw fa-folder"></i>
+					<span>채용공고</span>
+			</a>
+				<div id="collapse4" class="collapse" aria-labelledby="headingPages"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">채용공고</h6>
+						<a class="collapse-item"
+							th:href="@{/getRecruitListByCompany(searchWord=${session.loginCompany.companyKorName})}">채용공고
+							리스트 </a>
+					</div>
+				</div></li>
+			<!-- 문의&신고 관리 끝 -->
 
-         <!-- 구분 줄 -->
-         <hr class="sidebar-divider">
+			<!-- 구분 줄 -->
+			<hr class="sidebar-divider">
 
-         <!-- 면접확인 - 사이드바 제목 -->
-         <div class="sidebar-heading">면접제의</div>
+			<!-- 면접확인 - 사이드바 제목 -->
+			<div class="sidebar-heading">면접제의</div>
 
-         <!-- 면접 -->
-         <li class="nav-item"><a class="nav-link collapsed" href="#"
-            data-toggle="collapse" data-target="#collapse5" aria-expanded="true"
-            aria-controls="collapsePages"> <i
-               class="fas fa-fw fa-chart-area"></i> <span>면접제의</span>
-         </a>
-            <div id="collapse5" class="collapse" aria-labelledby="headingPages"
-               data-parent="#accordionSidebar">
-               <div class="bg-white py-2 collapse-inner rounded">
-                  <h6 class="collapse-header">면접제의</h6>
-                   <a class="collapse-item" th:href="@{/getMemberListForCompany}">면접제의 하기</a> 
-                  <a class="collapse-item" th:href="@{/suggestList(companyName=${session.loginCompany.companyKorName})}">면접제의 리스트</a> 
-               </div>
-            </div></li>
-         <!-- 면접 끝 -->
+			<!-- 면접 -->
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapse5" aria-expanded="true"
+				aria-controls="collapsePages"> <i
+					class="fas fa-fw fa-chart-area"></i> <span>면접제의</span>
+			</a>
+				<div id="collapse5" class="collapse" aria-labelledby="headingPages"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">면접제의</h6>
+						<a class="collapse-item" th:href="@{/getMemberListForCompany}">면접제의
+							하기</a> <a class="collapse-item"
+							th:href="@{/suggestList(companyName=${session.loginCompany.companyKorName})}">면접제의
+							리스트</a>
+					</div>
+				</div></li>
+			<!-- 면접 끝 -->
 
-         
-         <!-- 마지막 구분 줄 -->
-         <hr class="sidebar-divider d-none d-md-block">
 
-         <!-- < 버튼 -->
-         <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-         </div>
-
-      </ul>
+			<!-- 마지막 구분 줄 -->
+			<hr class="sidebar-divider d-none d-md-block">
+		</ul>
 		<!-- 사이드바 끝 -->
 
 
-				<!-- 내용 넣는 곳 -->
-				<div class="container-fluid pt-4 px-5 content">
+		<!-- 내용 넣는 곳 -->
+		<div class="container-fluid pt-4 px-5 content">
 
-					<!-- 테이블 제목 예시 -->
-					<h1 class="h3 mb-2 text-gray-800">기업회원</h1>
+			<!-- 테이블 제목 예시 -->
+			<h1 class="h3 mb-2 text-gray-800">기업회원</h1>
 
-					<!-- 테이블 예시 -->
-					<div class="card shadow mb-4">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">기업회원정보보기</h6>
-						</div>
-						<div class="card-body">
-							<div class="table-responsive">
-							<form method="post" th:action="@{/modifyCompany}">
-								<table class="table table-bordered" id="dataTable" width="100%"
-									cellspacing="0">
-									<tr>
-										<td>기업이메일</td>
-										<td>
-											<input type="text" name="companyEmail" th:value="${company.companyEmail}" readonly>
-										</td>
-									</tr>
-									<tr>
-										<td>비밀번호</td>
-										<td>
-											<input type="text" name="companyPw" th:value="${company.companyPw}">
-										</td>
-									</tr>
-									<tr>
-										<td>한글사명</td>
-										<td>
-											<input type="text" name="companyKorName" th:value="${company.companyKorName}">
-										</td>
-									</tr>
+			<!-- 테이블 예시 -->
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary">기업회원정보보기</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<form method="post" th:action="@{/modifyCompany}">
+							<table class="table table-bordered" id="dataTable" width="100%"
+								cellspacing="0">
+								<tr>
+									<td>기업이메일</td>
+									<td><input type="text" name="companyEmail"
+										th:value="${company.companyEmail}" readonly></td>
+								</tr>
+								<tr>
+									<td>비밀번호</td>
+									<td><input type="text" name="companyPw"
+										th:value="${company.companyPw}"></td>
+								</tr>
+								<tr>
+									<td>한글사명</td>
+									<td><input type="text" name="companyKorName"
+										th:value="${company.companyKorName}"></td>
+								</tr>
 
-									<tr>
-										<td>영문사명</td>
-										<td>
-											<input type="text" name="companyEngName" th:value="${company.companyEngName}">
-										</td>
-									</tr>
-									<tr>
-										<td>산업분야</td>
-										<td>
-											<input type="text" name="companyType" th:value="${company.companyType}">
-										</td>
-									</tr>
-									<tr>
-										<td>회사주소</td>
-										<td>
-											<input type="text" name="companyAddress" th:value="${company.companyAddress}">
-										</td>
-									</tr>
-									<tr>
-										<td>대표번호</td>
-										<td>
-											<input type="text" name="companyPhone" th:value="${company.companyPhone}">
-										</td>
-									</tr>
-									<tr>
-										<td>사업자등록번호</td>
-										<td>
-											<input type="text" name="companyLicense" th:value="${company.companyLicense}">
-										</td>
-									</tr>
-									<tr>
-										<td>회사홈페이지</td>
-										<td>
-											<input type="text" name="companyLink" th:value="${company.companyLink}">
-										</td>
-									</tr>
-									<tr>
-										<td>대표자명</td>
-										<td>
-											<input type="text" name="companyCEO" th:value="${company.companyCEO}">
-										</td>
-									</tr>
-									<tr>
-										<td>매출액</td>
-										<td>
-											<input type="text" name="companySales" th:value="${company.companySales}">
-										</td>
-									</tr>
-									<tr>
-										<td>사원수</td>
-										<td>
-											<input type="text" name="companyEmployees" th:value="${company.companyEmployees}">
-										</td>
-									</tr>
-									<tr>
-										<td>회사소개</td>
-										<td>
-											<input type="text" name="companyAbout" th:value="${company.companyAbout}">
-										</td>
-									</tr>
-									<tr>
-										<td>설립일</td>
-										<td>
-											<input type="date" name="companyFoundation" th:value="${company.companyFoundation}">
-										</td>
-									</tr>
-									
-								</table>
-								<button class="btn btn-sm pageBtn" type="submit" th:text="정보수정"></button>
-							</form>
-								
-								
-							</div>
-							<br>
-							<form method="get" th:action="@{/getCompanyInfo}">
-								<input type="hidden" name="companyEmail"
-									th:value="${session.loginCompany.companyEmail}">
-								<button class="btn btn-sm pageBtn" type="submit">돌아가기</button>
-							</form>
-							<br>
-							
-						</div>
+								<tr>
+									<td>영문사명</td>
+									<td><input type="text" name="companyEngName"
+										th:value="${company.companyEngName}"></td>
+								</tr>
+								<tr>
+									<td>산업분야</td>
+									<td><input type="text" name="companyType"
+										th:value="${company.companyType}"></td>
+								</tr>
+								<tr>
+									<td>회사주소</td>
+									<td><input type="text" name="companyAddress"
+										th:value="${company.companyAddress}"></td>
+								</tr>
+								<tr>
+									<td>대표번호</td>
+									<td><input type="text" name="companyPhone"
+										th:value="${company.companyPhone}"></td>
+								</tr>
+								<tr>
+									<td>사업자등록번호</td>
+									<td><input type="text" name="companyLicense"
+										th:value="${company.companyLicense}"></td>
+								</tr>
+								<tr>
+									<td>회사홈페이지</td>
+									<td><input type="text" name="companyLink"
+										th:value="${company.companyLink}"></td>
+								</tr>
+								<tr>
+									<td>대표자명</td>
+									<td><input type="text" name="companyCEO"
+										th:value="${company.companyCEO}"></td>
+								</tr>
+								<tr>
+									<td>매출액</td>
+									<td><input type="text" name="companySales"
+										th:value="${company.companySales}"></td>
+								</tr>
+								<tr>
+									<td>사원수</td>
+									<td><input type="text" name="companyEmployees"
+										th:value="${company.companyEmployees}"></td>
+								</tr>
+								<tr>
+									<td>회사소개</td>
+									<td><input type="text" name="companyAbout"
+										th:value="${company.companyAbout}"></td>
+								</tr>
+								<tr>
+									<td>설립일</td>
+									<td><input type="date" name="companyFoundation"
+										th:value="${company.companyFoundation}"></td>
+								</tr>
+
+							</table>
+							<button class="btn btn-sm pageBtn" type="submit" th:text="정보수정"></button>
+						</form>
+
+
 					</div>
-					
+					<br>
+					<form method="get" th:action="@{/getCompanyInfo}">
+						<input type="hidden" name="companyEmail"
+							th:value="${session.loginCompany.companyEmail}">
+						<button class="btn btn-sm pageBtn" type="submit">돌아가기</button>
+					</form>
+					<br>
 
 				</div>
-				<!-- /.container-fluid -->
-				
 			</div>
-			<!-- End of Main Content -->
 
-			<!-- 하단 저작권 -->
-			<footer class="sticky-footer bg-white">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Your Website 2020</span>
-					</div>
-				</div>
-			</footer>
-			<!-- 하단 저작권 끝 -->
 
 		</div>
-		<!-- End of Content Wrapper -->
+		<!-- /.container-fluid -->
+
+	</div>
+	<!-- End of Main Content -->
+
+	<!-- 하단 저작권 -->
+	<footer class="sticky-footer bg-white">
+		<div class="container my-auto">
+			<div class="copyright text-center my-auto">
+				<span>Copyright &copy; Your Website 2020</span>
+			</div>
+		</div>
+	</footer>
+	<!-- 하단 저작권 끝 -->
+
+	</div>
+	<!-- End of Content Wrapper -->
 
 	</div>
 	<!-- End of Page Wrapper -->
