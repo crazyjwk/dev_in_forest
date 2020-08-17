@@ -123,7 +123,7 @@
 					class="fas fa-fw fa-tachometer-alt"></i> <span>홈</span></a></li>
 			<li th:if="${accountKind} == 'C'" class="nav-item active"><a
 				class="nav-link" th:href="@{/companyHome}"> <i
-					class="fas fa-fw fa-tachometer-alt"></i> <span>기업 홈</span></a></li>
+					class="fas fa-fw fa-tachometer-alt"></i> <span>홈</span></a></li>
 
 			<!-- Divider -->
 			<hr th:if="${accountKind} == 'M'" class="sidebar-divider">
@@ -222,7 +222,7 @@
 			<hr class="sidebar-divider">
 
 			<!-- 기업확인 - 사이드바 제목 -->
-			<div th:if="${accountKind} == 'M'" class="sidebar-heading">기업</div>
+			<div th:if="${accountKind} == 'M'" class="sidebar-heading">채용</div>
 			<div th:if="${accountKind} == 'C'" class="sidebar-heading">채용공고</div>
 
 			<!-- 일반회원 기업 -->
@@ -230,15 +230,14 @@
 				class="nav-link collapsed" href="#" data-toggle="collapse"
 				data-target="#collapse5" aria-expanded="true"
 				aria-controls="collapsePages"> <i
-					class="fas fa-fw fa-chart-area"></i> <span>기업</span>
+					class="fas fa-fw fa-chart-area"></i> <span>채용</span>
 			</a>
 				<div id="collapse5" class="collapse" aria-labelledby="headingPages"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">기업</h6>
 						<a class="collapse-item" th:href="@{/getCompanyList}">기업정보리스트</a>
-						<a class="collapse-item" href="#">기업의 면접제의 리스트 </a> <a
-							class="collapse-item" href="#">기업의 채용리스트</a>
+						<a class="collapse-item" th:href="@{/getRecruitList}">채용공고</a>
 					</div>
 				</div></li>
 
@@ -264,12 +263,12 @@
 			<div th:if="${accountKind} == 'C'" class="sidebar-heading">면접제의</div>
 
 			<!-- 면접 -->
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
+			<li th:if="${accountKind} == 'C'" class="nav-item"><a class="nav-link collapsed" href="#"
 				data-toggle="collapse" data-target="#collapse6" aria-expanded="true"
 				aria-controls="collapsePages"> <i
 					class="fas fa-fw fa-chart-area"></i> <span>면접제의</span>
 			</a>
-				<div id="collapse6" class="collapse" aria-labelledby="headingPages"
+				<div  id="collapse6" class="collapse" aria-labelledby="headingPages"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">면접제의</h6>

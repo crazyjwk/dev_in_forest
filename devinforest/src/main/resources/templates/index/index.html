@@ -56,8 +56,8 @@
 
 			<!-- Nav Item - Dashboard -->
 			<li class="nav-item active"><a class="nav-link"
-				th:href="@{/home}"> <i class="fas fa-fw fa-tachometer-alt"></i>
-					<span>회원 홈</span></a></li>
+				th:href="@{/index}"> <i class="fas fa-fw fa-tachometer-alt"></i>
+					<span>홈</span></a></li>
 
 			<!-- Divider -->
 			<hr th:if="${memberName} != 'Guest'" class="sidebar-divider">
@@ -228,7 +228,7 @@
 								</a>
 							</div></li>
 						<li th:if="${accountKind} == 'G'"><a class="btn btn-success"
-							th:href="@{/login}">로그인</a></li>
+							th:href="@{/memberLogin}">로그인</a></li>
 						<!-- 닉네임 나오는 곳 - 상단 바 끝-->
 					</ul>
 				</nav>

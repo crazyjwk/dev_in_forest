@@ -12,12 +12,13 @@ import com.devinforest.vo.LoginMember;
 
 @Controller
 public class IndexCotroller {
+	
 	@GetMapping({"/", "/index"})
 	public String index(HttpSession session,Model model) {
 		String memberName = "Guest";
 		String accountKind = "G";
 		String companyEmail = "";
-		
+		 
 		if(session.getAttribute("loginMember") != null) {
 			memberName = ((LoginMember)session.getAttribute("loginMember")).getMemberName();
 			accountKind = ((LoginMember)session.getAttribute("loginMember")).getAccountKind();
@@ -40,6 +41,7 @@ public class IndexCotroller {
 		
 		return "index/index";
 	}
+	
 	@GetMapping("/home")
 	public String home(HttpSession session) {
 		if(session.getAttribute("loginMember")==null) {
@@ -47,6 +49,7 @@ public class IndexCotroller {
 		}
 		return "index/home";
 	}
+	
 	@GetMapping("/companyHome")
 	public String companyHome(HttpSession session) {
 		if(session.getAttribute("loginCompany")==null) {

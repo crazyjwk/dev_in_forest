@@ -288,7 +288,7 @@ public class MemberController {
 			System.out.println(returnLoginMember+"<-------로그인 컨트롤러 액션");	
 			session.setAttribute("loginMember", returnLoginMember);
 			System.out.println("로그인성공");
-			return "index/home";
+			return "redirect:/index";
 			
 			
 		}
@@ -312,7 +312,7 @@ public class MemberController {
 			System.out.println(returnLoginCompany+"<-------로그인 컨트롤러 액션");	
 			session.setAttribute("loginCompany", returnLoginCompany);
 			System.out.println("로그인성공");
-			return "company/companyHome";
+			return "redirect:/companyHome";
 		}
 		else {
 			return "redirect:/index";

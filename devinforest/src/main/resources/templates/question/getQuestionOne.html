@@ -725,7 +725,6 @@
 	<!-- Editor's Plugin -->
 	<script
 		src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
-	
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
@@ -748,15 +747,20 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link"
-				th:href="@{/home}"> <i class="fas fa-fw fa-tachometer-alt"></i>
-					<span>홈</span></a></li>
+			<li th:if="${accountKind} == 'M'" class="nav-item active"><a
+				class="nav-link" th:href="@{/home}"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>홈</span></a></li>
+			<li th:if="${accountKind} == 'C'" class="nav-item active"><a
+				class="nav-link" th:href="@{/companyHome}"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>홈</span></a></li>
 
 			<!-- Divider -->
 			<hr th:if="${accountKind} == 'M'" class="sidebar-divider">
+			<hr th:if="${accountKind} == 'C'" class="sidebar-divider">
 
 			<!-- Heading -->
 			<div th:if="${accountKind} == 'M'" class="sidebar-heading">회원</div>
+			<div th:if="${accountKind} == 'C'" class="sidebar-heading">기업</div>
 
 			<!-- Nav Item - 일반회원 관리 -->
 			<li th:if="${accountKind} == 'M'" class="nav-item"><a
@@ -776,29 +780,46 @@
 							class="collapse-item" href="#">문의&신고</a>
 					</div>
 				</div></li>
+			<li th:if="${accountKind} == 'C'" class="nav-item"><a
+				class="nav-link collapsed" href="#" data-toggle="collapse"
+				data-target="#collapse1" aria-expanded="true"
+				aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>기업회원</span>
+			</a>
+				<div id="collapse1" class="collapse" aria-labelledby="headingTwo"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">기업회원</h6>
+						<a class="collapse-item"
+							th:href="@{/getCompanyInfo(companyEmail=${companyEmail})}">회원정보</a>
+						<a class="collapse-item" th:href="@{/getMemberListForCompany}">일반회원목록</a>
+					</div>
+				</div></li>
 
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
 
 			<!-- Heading -->
-			<div class="sidebar-heading">해시태그</div>
+			<div th:if="${accountKind} != 'C'" class="sidebar-heading">해시태그</div>
+
 
 			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link"
-				th:href="@{/getHashtagList}"> <i class="fas fa-fw fa-folder"></i>
-					<span>해시태그</span>
+			<li th:if="${accountKind} != 'C'" class="nav-item"><a
+				class="nav-link" th:href="@{/getHashtagList}"> <i
+					class="fas fa-fw fa-folder"></i> <span>해시태그</span>
 			</a></li>
 
 			<!-- Divider -->
-			<hr class="sidebar-divider">
+			<hr th:if="${accountKind} != 'C'" class="sidebar-divider">
 
 			<!-- Heading -->
-			<div class="sidebar-heading">Q&A</div>
+			<div th:if="${accountKind} != 'C'" class="sidebar-heading">Q&A</div>
+			<div th:if="${accountKind} == 'C'" class="sidebar-heading">Q&A</div>
 
-			<!-- Nav Item - 공지 관리 -->
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
-				data-toggle="collapse" data-target="#collapse3" aria-expanded="true"
+			<!-- 관리자, 일반회원, Guest 전용 -->
+			<li th:if="${accountKind} != 'C'" class="nav-item"><a
+				class="nav-link collapsed" href="#" data-toggle="collapse"
+				data-target="#collapse3" aria-expanded="true"
 				aria-controls="collapsePages"> <i class="fas fa-fw fa-folder"></i>
 					<span>Q&A</span>
 			</a>
@@ -811,29 +832,81 @@
 							th:href="@{/addQuestion(memberName=${memberName})}">질문하기</a>
 					</div>
 				</div></li>
+
+			<!-- 기업 페이지 전용 -->
+			<li th:if="${accountKind} == 'C'" class="nav-item"><a
+				class="nav-link collapsed" href="#" data-toggle="collapse"
+				data-target="#collapse3" aria-expanded="true"
+				aria-controls="collapsePages"> <i class="fas fa-fw fa-folder"></i>
+					<span>Q&A</span>
+			</a>
+				<div id="collapse3" class="collapse" aria-labelledby="headingPages"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">Q&A</h6>
+						<a class="collapse-item" th:href="@{/getQuestionList}">질문목록</a>
+					</div>
+				</div></li>
 			<!-- 구분 줄 -->
 			<hr class="sidebar-divider">
 
 			<!-- 기업확인 - 사이드바 제목 -->
-			<div class="sidebar-heading">기업</div>
+			<div th:if="${accountKind} == 'M'" class="sidebar-heading">채용</div>
+			<div th:if="${accountKind} == 'C'" class="sidebar-heading">채용공고</div>
 
-			<!-- 기업 -->
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
-				data-toggle="collapse" data-target="#collapse5" aria-expanded="true"
+			<!-- 일반회원 기업 -->
+			<li th:if="${accountKind} == 'M'" class="nav-item"><a
+				class="nav-link collapsed" href="#" data-toggle="collapse"
+				data-target="#collapse5" aria-expanded="true"
 				aria-controls="collapsePages"> <i
-					class="fas fa-fw fa-chart-area"></i> <span>기업</span>
+					class="fas fa-fw fa-chart-area"></i> <span>채용</span>
 			</a>
 				<div id="collapse5" class="collapse" aria-labelledby="headingPages"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">기업</h6>
 						<a class="collapse-item" th:href="@{/getCompanyList}">기업정보리스트</a>
-						<a class="collapse-item" href="#">기업의 면접제의 리스트 </a> <a
-							class="collapse-item" href="#">기업의 채용리스트</a>
+						<a class="collapse-item" th:href="@{/getRecruitList}">채용공고</a>
 					</div>
 				</div></li>
-			<!-- 기업 끝 -->
 
+			<!-- 기업 전용 채용공고 -->
+			<li th:if="${accountKind} == 'C'" class="nav-item"><a
+				class="nav-link collapsed" href="#" data-toggle="collapse"
+				data-target="#collapse5" aria-expanded="true"
+				aria-controls="collapsePages"> <i
+					class="fas fa-fw fa-chart-area"></i> <span>채용공고</span>
+			</a>
+				<div id="collapse5" class="collapse" aria-labelledby="headingPages"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">채용공고</h6>
+						<a class="collapse-item"
+							th:href="@{/getRecruitListByCompany(searchWord=${memberName})}">기업정보리스트</a>
+					</div>
+				</div></li>
+			<!-- 구분 줄 -->
+			<hr th:if="${accountKind} == 'C'" class="sidebar-divider">
+
+			<!-- 면접확인 - 사이드바 제목 -->
+			<div th:if="${accountKind} == 'C'" class="sidebar-heading">면접제의</div>
+
+			<!-- 면접 -->
+			<li th:if="${accountKind} == 'C'" class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapse6" aria-expanded="true"
+				aria-controls="collapsePages"> <i
+					class="fas fa-fw fa-chart-area"></i> <span>면접제의</span>
+			</a>
+				<div id="collapse6" class="collapse" aria-labelledby="headingPages"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">면접제의</h6>
+						<a class="collapse-item" th:href="@{/getMemberListForCompany}">면접제의
+							하기</a> <a class="collapse-item"
+							th:href="@{/suggestList(companyName=${memberName})}">면접제의 리스트</a>
+					</div>
+				</div></li>
+			<!-- 면접 끝 -->
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
 		</ul>
@@ -1014,17 +1087,17 @@
 					<div id="answerList"></div>
 					<div id="addedAnswerList"></div>
 
-					<!-- 답변 작성 -->	
-					<div th:if="${accountKind} == 'M' and ${question.memberName} != ${memberName}">
+					<!-- 답변 작성 -->
+					<div
+						th:if="${accountKind} == 'M' and ${question.memberName} != ${memberName}">
 						<div id="editor"></div>
 						<textarea rows="5" cols="100" class="form-control"
 							id="addAnswerContent" placeholder="Enter your answer"></textarea>
 						<br>
 						<button class="btn btn-outline-success" id="addAnswerBtn">답변작성</button>
 					</div>
-					<div th:if="${question.memberName} == ${memberName}">
-						질문자는 답변을 작성할 수 없습니다.
-					</div>
+					<div th:if="${question.memberName} == ${memberName}">질문자는 답변을
+						작성할 수 없습니다.</div>
 					<div th:if="${accountKind} == 'G'">
 						답변을 작성하려면 <a th:href="@{/memberLogin}" th:text="로그인"></a>을 하세요.
 					</div>
